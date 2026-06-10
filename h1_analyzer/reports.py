@@ -51,11 +51,11 @@ def write_markdown_summary(path: Path, overview: dict, attackers: list[dict], in
     lines.append("## 3. WHEN — Incident Windows")
     lines.append("")
     if incidents:
-        lines.append("| Window | Start | End | States | Peak Req/min | Peak 5xx/min | Reason |")
-        lines.append("|---:|---|---|---|---:|---:|---|")
+        lines.append("| Window | Start | End | States | Peak Req/min | Peak 5xx/min | Peak p95 latency ms | Reason |")
+        lines.append("|---:|---|---|---|---:|---:|---:|---|")
         for idx, row in enumerate(incidents, 1):
             lines.append(
-                f"| {idx} | {row['start_time']} | {row['end_time']} | {row['states_seen']} | {row['peak_requests']} | {row['peak_5xx']} | {row['reason']} |"
+                f"| {idx} | {row['start_time']} | {row['end_time']} | {row['states_seen']} | {row['peak_requests']} | {row['peak_5xx']} | {row.get('peak_p95_latency_ms', 0)} | {row['reason']} |"
             )
     else:
         lines.append("No non-normal incident windows detected by current thresholds.")
@@ -75,7 +75,7 @@ def write_markdown_summary(path: Path, overview: dict, attackers: list[dict], in
     lines.append("")
     lines.append("## 5. Important Limitations")
     lines.append("")
-    lines.append("- This log format does **not** include actual response time, so slow/unstable periods are inferred from traffic and error spikes.")
+    lines.append("- This log format includes measured latency as field 6 (`latency_ms`), so slow/unstable periods can be backed by latency metrics.")
     lines.append("- This log format does **not** include User-Agent or request body, so tool fingerprinting and POST-body payloads are unavailable.")
     lines.append("- Scores are explainable heuristics for prioritization; final claims should cite evidence rows.")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")

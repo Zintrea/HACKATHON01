@@ -11,7 +11,7 @@ Source log:
 Log format ที่ analyzer ใช้:
 
 ```text
-timestamp | ip | method | endpoint | status | size
+timestamp | ip | method | endpoint | status | latency_ms
 ```
 
 Pipeline ที่สร้าง output:
@@ -143,9 +143,9 @@ WHEN?
 
 ### ข้อควรพูด
 
-เพราะ log ไม่มี response time:
+เพราะ log มี response latency ใน field 6:
 
-> slow/unstable window เป็นการ infer จาก traffic/error spike ไม่ใช่ response time ที่วัดจริง
+> slow/unstable window สามารถอ้างอิงค่า `latency_ms` ที่วัดจริง ร่วมกับ traffic/error spike เพื่อยืนยันผลกระทบ
 
 ---
 
@@ -191,7 +191,7 @@ HOW evidence
 | `method` | HTTP method | field 3 |
 | `endpoint` | path | field 4 |
 | `status` | HTTP status | field 5 |
-| `size` | response size | field 6 |
+| `latency_ms` | response latency in milliseconds | field 6 |
 | `score` | request-level score | `score_request()` |
 | `reasons` | flags ที่ทำให้ request น่าสงสัย | เช่น `server_error`, `sqli`, `xss` |
 
@@ -276,13 +276,13 @@ Top-level keys:
 ## วิธีอธิบายสั้น ๆ เวลาโดนถามว่า “ค่ามาจากไหน”
 
 ```text
-ค่าทุกอย่างมาจาก raw log 6 fields คือ timestamp, IP, method, endpoint, status, size
+ค่าทุกอย่างมาจาก raw log 6 fields คือ timestamp, IP, method, endpoint, status, latency_ms
 เรา parse เป็น structured request จากนั้น detect red flags ต่อ request, ให้ score, aggregate ตาม IP/endpoint/time, แล้ว export เป็น CSV/JSON/Markdown
 ```
 
 ## ข้อจำกัดสำคัญ
 
-- ไม่มี response time จริง → ห้าม claim latency ตรง ๆ
+- มี response latency จริงใน field 6 (`latency_ms`) → claim เรื่องช้าได้เมื่ออ้าง metric นี้
 - ไม่มี User-Agent → บอก tool เช่น sqlmap/curl จาก UA ไม่ได้
 - ไม่มี request body → เห็น payload เฉพาะที่อยู่ใน endpoint/path/query
 - score เป็น heuristic เพื่อจัดอันดับ evidence ไม่ใช่คำตัดสิน 100%

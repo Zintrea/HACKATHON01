@@ -43,14 +43,14 @@ EXPECTED_COLUMNS = {
     ],
     "incident_windows.csv": [
         "start_time", "end_time", "states_seen", "peak_requests", "peak_5xx",
-        "total_suspicious_requests", "reason",
+        "peak_p95_latency_ms", "total_suspicious_requests", "reason",
     ],
     "suspicious_requests.csv": [
-        "line_number", "timestamp", "ip", "method", "endpoint", "status", "size", "score", "reasons",
+        "line_number", "timestamp", "ip", "method", "endpoint", "status", "latency_ms", "score", "reasons",
     ],
     "traffic_timeline.csv": [
         "minute", "total_requests", "status_2xx", "status_3xx", "status_4xx", "status_5xx",
-        "unique_ips", "suspicious_requests", "system_state",
+        "unique_ips", "suspicious_requests", "avg_latency_ms", "p95_latency_ms", "max_latency_ms", "system_state",
     ],
     "hidden_bonus_candidates.csv": [
         "candidate", "confidence", "clue_type", "decode_method", "timestamp", "ip", "endpoint", "reason",

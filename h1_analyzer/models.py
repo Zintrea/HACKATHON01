@@ -19,7 +19,7 @@ class LogRequest:
     """One parsed access-log request.
 
     The source log format is:
-        timestamp | ip | method | endpoint | status | size
+        timestamp | ip | method | endpoint | status | latency_ms
 
     We keep `raw` and `line_number` because evidence matters. If a judge asks
     "why is this IP suspicious?", we can point back to exact request examples.
@@ -33,7 +33,7 @@ class LogRequest:
     method: str
     endpoint: str
     status: int
-    size: int
+    latency_ms: int
 
 
 @dataclass(frozen=True)

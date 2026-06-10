@@ -11,7 +11,7 @@
     <div>
       <p class="eyebrow">H1 Hackathon · Script-generated evidence</p>
       <h1>NexusCart Incident Dashboard</h1>
-      <p class="subtitle">WHO attacked, WHEN the system became unstable, HOW endpoint variants caused 5xx errors, and what suffix clue was found.</p>
+      <p class="subtitle">WHO attacked, WHEN the system became slow or unstable, and HOW endpoint variants caused 5xx errors using reproducible evidence.</p>
     </div>
     <div class="hero-note">
       <strong>Presentation-safe:</strong><br />เปิดไฟล์นี้ได้โดย double-click <code>index.html</code><br />ไม่ต้องมี backend
@@ -62,18 +62,6 @@
     <section class="panel">
       <div class="section-title">
         <div>
-          <p class="eyebrow">HIDDEN BONUS CANDIDATE</p>
-          <h2>Suffix pattern sequence</h2>
-        </div>
-        <span class="pill">candidate, not final proof</span>
-      </div>
-      <div id="suffix-sequence" class="suffix-sequence"></div>
-      <div id="suffix-table"></div>
-    </section>
-
-    <section class="panel">
-      <div class="section-title">
-        <div>
           <p class="eyebrow">WHEN?</p>
           <h2>Incident windows</h2>
         </div>
@@ -96,7 +84,7 @@
     <section class="panel limitations">
       <h2>Limitations we should say out loud</h2>
       <ul>
-        <li>No response-time field → slowdown is <b>inferred</b> from traffic/error patterns.</li>
+        <li>Latency is available as field 6 (<code>latency_ms</code>) → slowdown can be backed by measured latency.</li>
         <li>No User-Agent → cannot identify tools like sqlmap/curl from UA.</li>
         <li>No request body → payloads are visible only in endpoint/path/query.</li>
         <li>Scores are explainable heuristics; final claims cite evidence rows.</li>

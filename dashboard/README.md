@@ -36,7 +36,7 @@ python3 dashboard/build_dashboard_data.py
 - Overview cards
 - Top suspicious IPs
 - Normal vs variant endpoints
-- Suffix clue sequence
+- Measured latency from field 6 (`latency_ms`)
 - Incident windows
 - Evidence examples
 - Limitations

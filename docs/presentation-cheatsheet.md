@@ -124,7 +124,7 @@ Endpoint ปกติอย่าง /cart ไม่ได้ล่ม แต่
 ### Q3: รู้ได้ยังไงว่าระบบหน่วงหรือ down?
 
 ```text
-Log ไม่มี response time field เราจึงไม่ claim latency จริง แต่ infer unstable/down windows จาก 5xx spike และ server-side error pattern
+Log มี response latency อยู่ field สุดท้าย (`latency_ms`) เราจึง claim ช่วง slow/unstable ได้จากค่า latency ที่วัดจริง ร่วมกับ 5xx spike และ server-side error pattern
 ```
 
 ### Q4: ทำไมไม่อ่าน log manual?
@@ -142,7 +142,7 @@ Log ไม่มี response time field เราจึงไม่ claim latenc
 ### Q6: Hidden bonus เจอไหม?
 
 ```text
-ด้วย rule ปัจจุบันยังไม่เจอ candidate ที่มั่นใจ จึงไม่ฟันธงเกินหลักฐาน ถ้าต่อเวลาได้จะ hunt เฉพาะ attacker IP group, endpoint variants และ response size sequences
+ด้วย rule ปัจจุบันยังไม่เจอ candidate ที่มั่นใจ จึงไม่ฟันธงเกินหลักฐาน ถ้าต่อเวลาได้จะ hunt เฉพาะ attacker IP group, endpoint variants และ response latency sequences
 ```
 
 ---

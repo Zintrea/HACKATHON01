@@ -1,4 +1,4 @@
-line_number,timestamp,ip,method,endpoint,status,size,score,reasons
+line_number,timestamp,ip,method,endpoint,status,latency_ms,score,reasons
 196136,2024-06-16 10:25:29,209.103.8.44,GET,/indexN.html,500,10738,4,server_error
 196137,2024-06-16 10:25:31,215.143.100.205,GET,/cartN,504,11540,4,server_error
 196138,2024-06-16 10:25:32,119.123.55.141,GET,/indexN.html,504,8720,4,server_error

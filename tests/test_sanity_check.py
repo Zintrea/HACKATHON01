@@ -31,18 +31,18 @@ class TestSanityCheck(unittest.TestCase):
         )
         self.write_csv(
             base / "incident_windows.csv",
-            ["start_time", "end_time", "states_seen", "peak_requests", "peak_5xx", "total_suspicious_requests", "reason"],
-            [{"start_time": "2024-01-01 00:00", "end_time": "2024-01-01 00:01", "states_seen": "down_or_crashing", "peak_requests": "10", "peak_5xx": "2", "total_suspicious_requests": "2", "reason": "test"}],
+            ["start_time", "end_time", "states_seen", "peak_requests", "peak_5xx", "peak_p95_latency_ms", "total_suspicious_requests", "reason"],
+            [{"start_time": "2024-01-01 00:00", "end_time": "2024-01-01 00:01", "states_seen": "down_or_crashing", "peak_requests": "10", "peak_5xx": "2", "peak_p95_latency_ms": "1200", "total_suspicious_requests": "2", "reason": "test"}],
         )
         self.write_csv(
             base / "suspicious_requests.csv",
-            ["line_number", "timestamp", "ip", "method", "endpoint", "status", "size", "score", "reasons"],
-            [{"line_number": "1", "timestamp": "2024-01-01 00:00:00", "ip": "9.9.9.9", "method": "GET", "endpoint": "/cart_", "status": "500", "size": "10", "score": "4", "reasons": "server_error"}],
+            ["line_number", "timestamp", "ip", "method", "endpoint", "status", "latency_ms", "score", "reasons"],
+            [{"line_number": "1", "timestamp": "2024-01-01 00:00:00", "ip": "9.9.9.9", "method": "GET", "endpoint": "/cart_", "status": "500", "latency_ms": "10", "score": "4", "reasons": "server_error"}],
         )
         self.write_csv(
             base / "traffic_timeline.csv",
-            ["minute", "total_requests", "status_2xx", "status_3xx", "status_4xx", "status_5xx", "unique_ips", "suspicious_requests", "system_state"],
-            [{"minute": "2024-01-01 00:00", "total_requests": "5", "status_2xx": "1", "status_3xx": "1", "status_4xx": "1", "status_5xx": "2", "unique_ips": "4", "suspicious_requests": "2", "system_state": "down_or_crashing"}],
+            ["minute", "total_requests", "status_2xx", "status_3xx", "status_4xx", "status_5xx", "unique_ips", "suspicious_requests", "avg_latency_ms", "p95_latency_ms", "max_latency_ms", "system_state"],
+            [{"minute": "2024-01-01 00:00", "total_requests": "5", "status_2xx": "1", "status_3xx": "1", "status_4xx": "1", "status_5xx": "2", "unique_ips": "4", "suspicious_requests": "2", "avg_latency_ms": "500", "p95_latency_ms": "1200", "max_latency_ms": "1500", "system_state": "down_or_crashing"}],
         )
         self.write_csv(
             base / "hidden_bonus_candidates.csv",

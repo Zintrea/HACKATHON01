@@ -15,7 +15,7 @@ def req(endpoint, status=200):
         method="GET",
         endpoint=endpoint,
         status=status,
-        size=10,
+        latency_ms=10,
     )
 
 

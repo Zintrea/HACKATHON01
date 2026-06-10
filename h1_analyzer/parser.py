@@ -22,6 +22,8 @@ def parse_log_line(line: str, line_number: int) -> Optional[LogRequest]:
     Expected format:
         2024-06-10 04:17:43 | 39.3.141.152 | POST | /checkout | 200 | 122
 
+    The last field is measured response latency in milliseconds.
+
     Returns:
         LogRequest when the line is valid, otherwise None.
     """
@@ -30,7 +32,7 @@ def parse_log_line(line: str, line_number: int) -> Optional[LogRequest]:
     if len(parts) != 6:
         return None
 
-    timestamp_text, ip, method, endpoint, status_text, size_text = parts
+    timestamp_text, ip, method, endpoint, status_text, latency_text = parts
     try:
         # Manual datetime construction is much faster than `strptime` on a
         # 21M-line log while still returning a real datetime for tests/docs.
@@ -43,7 +45,7 @@ def parse_log_line(line: str, line_number: int) -> Optional[LogRequest]:
             int(timestamp_text[17:19]),
         )
         status = int(status_text)
-        size = int(size_text)
+        latency_ms = int(latency_text)
     except (ValueError, IndexError):
         return None
 
@@ -56,5 +58,5 @@ def parse_log_line(line: str, line_number: int) -> Optional[LogRequest]:
         method=method.upper(),
         endpoint=endpoint,
         status=status,
-        size=size,
+        latency_ms=latency_ms,
     )

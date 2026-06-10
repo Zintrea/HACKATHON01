@@ -15,6 +15,15 @@ from .patterns import attack_type_from_flags, detect_request_flags
 from .scoring import classify_ip_score, score_request
 
 
+def percentile_nearest_rank(values: list[int], percentile: float) -> int:
+    """Return nearest-rank percentile for a small per-minute latency sample."""
+    if not values:
+        return 0
+    ordered = sorted(values)
+    index = max(0, min(len(ordered) - 1, int((percentile / 100) * len(ordered) + 0.999999) - 1))
+    return ordered[index]
+
+
 class AnalysisState:
     """Mutable accumulator for one streaming pass over the log file.
 
@@ -120,6 +129,7 @@ class AnalysisState:
                 "status_5xx": 0,
                 "unique_ips_set": set(),
                 "suspicious_requests": 0,
+                "latency_values": [],
             },
         )
         row["total_requests"] += 1
@@ -134,6 +144,7 @@ class AnalysisState:
             row["status_5xx"] += 1
         if is_suspicious:
             row["suspicious_requests"] += 1
+        row["latency_values"].append(request.latency_ms)
 
     def _update_endpoint_stats(self, request: LogRequest, flags: list[str], attack_type: str) -> None:
         row = self.endpoint_stats.setdefault(
@@ -226,10 +237,16 @@ class AnalysisState:
         rows: list[dict] = []
         for minute, row in sorted(self.timeline.items()):
             total = row["total_requests"]
+            latencies = row["latency_values"]
+            avg_latency_ms = round(sum(latencies) / len(latencies)) if latencies else 0
+            p95_latency_ms = percentile_nearest_rank(latencies, 95)
+            max_latency_ms = max(latencies, default=0)
             state = "normal"
-            # Conservative state labels: no response-time claims, only traffic/error inference.
+            # Conservative state labels using measured latency plus traffic/error signals.
             if row["status_5xx"] > 0 and row["suspicious_requests"] > 0:
                 state = "down_or_crashing"
+            elif p95_latency_ms >= 2000 or avg_latency_ms >= 1000:
+                state = "slow_or_unstable"
             elif row["suspicious_requests"] > 0 or row["status_4xx"] > max(10, total * 0.2):
                 state = "suspicious"
             if total >= 1000 and state != "down_or_crashing":
@@ -244,6 +261,9 @@ class AnalysisState:
                     "status_5xx": row["status_5xx"],
                     "unique_ips": len(row["unique_ips_set"]),
                     "suspicious_requests": row["suspicious_requests"],
+                    "avg_latency_ms": avg_latency_ms,
+                    "p95_latency_ms": p95_latency_ms,
+                    "max_latency_ms": max_latency_ms,
                     "system_state": state,
                 }
             )
@@ -295,7 +315,7 @@ class AnalysisState:
             "method": request.method,
             "endpoint": request.endpoint,
             "status": request.status,
-            "size": request.size,
+            "latency_ms": request.latency_ms,
             "score": score,
             "reasons": ";".join(flags),
         }

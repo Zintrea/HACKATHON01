@@ -48,7 +48,6 @@ tr:hover td { background: rgba(255,255,255,.035); }
 .endpoint-card { background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:18px; padding:16px; }
 .endpoint-card h3 { margin:0 0 8px; }
 .status-row { display:grid; grid-template-columns: 90px 1fr 80px; align-items:center; gap:10px; margin:8px 0; color:var(--muted); }
-.suffix-sequence { font-size: clamp(28px, 4vw, 48px); font-weight:950; letter-spacing:.08em; padding:18px; border-radius:18px; border:1px solid rgba(125,211,252,.25); background:rgba(125,211,252,.07); margin-bottom:18px; overflow-x:auto; white-space:nowrap; }
 .story-panel { display:grid; grid-template-columns: 1.3fr .9fr; gap:22px; align-items:center; }
 .story-steps { margin: 10px 0 0; color: var(--muted); line-height:1.8; }
 blockquote { margin:0; font-size:22px; line-height:1.4; color:#e0f2fe; border-left:4px solid var(--accent); padding-left:18px; }

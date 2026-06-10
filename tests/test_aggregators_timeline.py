@@ -5,9 +5,9 @@ from h1_analyzer.aggregators import AnalysisState
 from h1_analyzer.timeline import build_incident_windows
 
 
-def req(ip, minute, endpoint="/products", status=200):
+def req(ip, minute, endpoint="/products", status=200, latency_ms=100):
     ts = datetime.strptime(minute + ":00", "%Y-%m-%d %H:%M:%S")
-    return LogRequest(1, "raw", ts, minute[:16], ip, "GET", endpoint, status, 100)
+    return LogRequest(1, "raw", ts, minute[:16], ip, "GET", endpoint, status, latency_ms)
 
 
 class TestAggregatorsTimeline(unittest.TestCase):
@@ -48,12 +48,25 @@ class TestAggregatorsTimeline(unittest.TestCase):
 
     def test_builds_incident_windows_from_abnormal_minutes(self):
         timeline_rows = [
-            {"minute": "2024-06-10 05:00", "total_requests": 10, "status_4xx": 0, "status_5xx": 0, "suspicious_requests": 0, "system_state": "normal"},
-            {"minute": "2024-06-10 05:01", "total_requests": 200, "status_4xx": 90, "status_5xx": 0, "suspicious_requests": 50, "system_state": "suspicious"},
-            {"minute": "2024-06-10 05:02", "total_requests": 300, "status_4xx": 50, "status_5xx": 40, "suspicious_requests": 60, "system_state": "down_or_crashing"},
+            {"minute": "2024-06-10 05:00", "total_requests": 10, "status_4xx": 0, "status_5xx": 0, "suspicious_requests": 0, "avg_latency_ms": 80, "p95_latency_ms": 120, "max_latency_ms": 150, "system_state": "normal"},
+            {"minute": "2024-06-10 05:01", "total_requests": 200, "status_4xx": 90, "status_5xx": 0, "suspicious_requests": 50, "avg_latency_ms": 1400, "p95_latency_ms": 2500, "max_latency_ms": 3200, "system_state": "slow_or_unstable"},
+            {"minute": "2024-06-10 05:02", "total_requests": 300, "status_4xx": 50, "status_5xx": 40, "suspicious_requests": 60, "avg_latency_ms": 2200, "p95_latency_ms": 5200, "max_latency_ms": 7000, "system_state": "down_or_crashing"},
         ]
         windows = build_incident_windows(timeline_rows)
         self.assertEqual(len(windows), 1)
         self.assertEqual(windows[0]["start_time"], "2024-06-10 05:01")
         self.assertEqual(windows[0]["end_time"], "2024-06-10 05:02")
         self.assertIn("down_or_crashing", windows[0]["states_seen"])
+        self.assertEqual(windows[0]["peak_p95_latency_ms"], 5200)
+
+    def test_timeline_includes_measured_latency_metrics(self):
+        state = AnalysisState(max_evidence_per_ip=3)
+        state.add_request(req("1.1.1.1", "2024-06-10 05:00", "/products", 200, latency_ms=100))
+        state.add_request(req("2.2.2.2", "2024-06-10 05:00", "/products", 200, latency_ms=300))
+        state.add_request(req("3.3.3.3", "2024-06-10 05:00", "/cart_", 500, latency_ms=900))
+
+        row = state.timeline_rows()[0]
+
+        self.assertEqual(row["avg_latency_ms"], 433)
+        self.assertEqual(row["p95_latency_ms"], 900)
+        self.assertEqual(row["max_latency_ms"], 900)

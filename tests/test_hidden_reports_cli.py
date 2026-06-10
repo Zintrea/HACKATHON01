@@ -51,7 +51,13 @@ class TestHiddenReportsCli(unittest.TestCase):
             self.assertEqual(rows[0]["ip"], "9.9.9.9")
             self.assertIn(rows[0]["label"], {"likely_attacker", "high_confidence_attacker"})
 
+            with (out / "suspicious_requests.csv").open(newline="", encoding="utf-8") as f:
+                suspicious_rows = list(csv.DictReader(f))
+            self.assertIn("latency_ms", suspicious_rows[0])
+            self.assertNotIn("size", suspicious_rows[0])
+
             data = json.loads((out / "dashboard_data.json").read_text(encoding="utf-8"))
             self.assertIn("overview", data)
             self.assertIn("attackers", data)
             self.assertIn("timeline", data)
+            self.assertIn("Latency field present", data["overview"]["note"])

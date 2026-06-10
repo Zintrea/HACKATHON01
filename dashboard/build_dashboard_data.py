@@ -57,7 +57,6 @@ def build_data() -> dict:
     attackers = read_csv("attacker_ips.csv")
     endpoints = read_csv("endpoint_summary.csv")
     incidents = read_csv("incident_windows.csv")
-    suffixes = read_csv("suffix_patterns.csv") if (OUTPUT / "suffix_patterns.csv").exists() else []
     evidence = read_csv("suspicious_requests.csv", limit=80)
 
     overview = {
@@ -65,22 +64,22 @@ def build_data() -> dict:
         "malformed_lines": 1,
         "suspicious_ips": len(attackers),
         "status_counts": {"200": 10608035, "304": 2581383, "404": 2584078, "500": 2687007, "504": 2685894},
-        "suffix_sequence": "".join(row["suffix"] for row in suffixes),
-        "note": "No response-time/User-Agent fields; unstable/down windows are inferred from traffic and 5xx patterns.",
+        "note": "Latency field present as field 6 (latency_ms). User-Agent is not present; tool fingerprinting from UA is unavailable.",
     }
+
+    if incidents:
+        overview["peak_p95_latency_ms"] = max(int(row.get("peak_p95_latency_ms", 0)) for row in incidents)
 
     return {
         "overview": overview,
         "attackers": attackers,
         "endpoints": pick_endpoint_rows(endpoints),
         "incidents": incidents[:40],
-        "suffixes": suffixes,
         "evidence": evidence,
         "generated_from": {
             "attacker_ips": "output/attacker_ips.csv",
             "endpoint_summary": "output/endpoint_summary.csv",
             "incident_windows": "output/incident_windows.csv",
-            "suffix_patterns": "output/suffix_patterns.csv",
             "suspicious_requests": "output/suspicious_requests.csv",
         },
     }
@@ -92,7 +91,7 @@ def main() -> int:
     data_js = "window.H1_DASHBOARD_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n"
     (DASHBOARD / "data.js").write_text(data_js, encoding="utf-8")
     print(f"Wrote {DASHBOARD / 'data.js'}")
-    print(f"attackers={len(data['attackers'])} endpoints={len(data['endpoints'])} suffixes={len(data['suffixes'])}")
+    print(f"attackers={len(data['attackers'])} endpoints={len(data['endpoints'])}")
     return 0
 
 

@@ -15,7 +15,8 @@ class TestParser(unittest.TestCase):
         self.assertEqual(req.method, "POST")
         self.assertEqual(req.endpoint, "/checkout")
         self.assertEqual(req.status, 200)
-        self.assertEqual(req.size, 122)
+        self.assertEqual(req.latency_ms, 122)
+        self.assertFalse(hasattr(req, "size"))
 
     def test_malformed_line_returns_none_instead_of_crashing(self):
         self.assertIsNone(parse_log_line("not a real access log", line_number=1))

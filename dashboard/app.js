@@ -10,7 +10,7 @@ function renderOverview() {
     ['Parsed lines', fmt(o.parsed_lines), 'Raw log rows processed'],
     ['Suspicious IPs', fmt(o.suspicious_ips), 'High-confidence group'],
     ['Server errors', fmt(total5xx), '500 + 504 responses'],
-    ['Suffix clue', o.suffix_sequence, 'Ordered endpoint suffixes'],
+    ['Peak p95 latency', fmt(o.peak_p95_latency_ms || 'see timeline'), 'Measured from field 6'],
     ['Malformed', fmt(o.malformed_lines), 'Rows skipped safely'],
   ];
   document.getElementById('overview').innerHTML = cards.map(([label, value, note]) => `
@@ -58,33 +58,20 @@ function renderEndpointComparison() {
   }).join('')}</div>`;
 }
 
-function renderSuffixes() {
-  document.getElementById('suffix-sequence').textContent = data.overview.suffix_sequence;
-  const max = Math.max(...data.suffixes.map(s => s.total_5xx));
-  document.getElementById('suffix-table').innerHTML = `
-    <table><thead><tr><th>Order</th><th>Suffix</th><th>Total 5xx</th><th>Endpoint Count</th><th>Examples</th></tr></thead><tbody>
-      ${data.suffixes.map((s, i) => `<tr>
-        <td>${i + 1}</td><td><code>${s.suffix}</code></td>
-        <td>${fmt(s.total_5xx)}<div class="bar"><span style="width:${pct(s.total_5xx, max)}%"></span></div></td>
-        <td>${s.endpoint_count}</td><td><code>${String(s.examples).split(';').slice(0,4).join('</code>, <code>')}</code></td>
-      </tr>`).join('')}
-    </tbody></table>`;
-}
-
 function renderIncidents() {
   document.getElementById('incidents').innerHTML = `
-    <table><thead><tr><th>#</th><th>Start</th><th>End</th><th>State</th><th>Peak 5xx/min</th><th>Reason</th></tr></thead><tbody>
+    <table><thead><tr><th>#</th><th>Start</th><th>End</th><th>State</th><th>Peak 5xx/min</th><th>Peak p95 latency</th><th>Reason</th></tr></thead><tbody>
       ${data.incidents.slice(0, 25).map((w, i) => `<tr>
-        <td>${i + 1}</td><td>${w.start_time}</td><td>${w.end_time}</td><td>${w.states_seen}</td><td>${fmt(w.peak_5xx)}</td><td>${w.reason}</td>
+        <td>${i + 1}</td><td>${w.start_time}</td><td>${w.end_time}</td><td>${w.states_seen}</td><td>${fmt(w.peak_5xx)}</td><td>${fmt(w.peak_p95_latency_ms)}</td><td>${w.reason}</td>
       </tr>`).join('')}
     </tbody></table>`;
 }
 
 function renderEvidence() {
   document.getElementById('evidence').innerHTML = `
-    <table><thead><tr><th>Line</th><th>Time</th><th>IP</th><th>Endpoint</th><th>Status</th><th>Reasons</th></tr></thead><tbody>
+    <table><thead><tr><th>Line</th><th>Time</th><th>IP</th><th>Endpoint</th><th>Status</th><th>Latency ms</th><th>Reasons</th></tr></thead><tbody>
       ${data.evidence.slice(0, 30).map(e => `<tr>
-        <td>${e.line_number}</td><td>${e.timestamp}</td><td><code>${e.ip}</code></td><td><code>${e.endpoint}</code></td><td>${e.status}</td><td>${e.reasons}</td>
+        <td>${e.line_number}</td><td>${e.timestamp}</td><td><code>${e.ip}</code></td><td><code>${e.endpoint}</code></td><td>${e.status}</td><td>${fmt(e.latency_ms)}</td><td>${e.reasons}</td>
       </tr>`).join('')}
     </tbody></table>`;
 }
@@ -92,6 +79,5 @@ function renderEvidence() {
 renderOverview();
 renderAttackers();
 renderEndpointComparison();
-renderSuffixes();
 renderIncidents();
 renderEvidence();

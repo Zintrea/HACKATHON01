@@ -112,6 +112,6 @@ status=PASS
 
 ## ข้อจำกัดที่ต้องพูดตอนนำเสนอ
 
-- log นี้ไม่มี response time จริง ดังนั้นช่วงหน่วงเป็นการ infer จาก traffic/error spikes
+- log นี้มี response latency อยู่ field สุดท้าย (`latency_ms`) ดังนั้นช่วงหน่วงสามารถอ้างอิง latency ที่วัดได้จริงร่วมกับ traffic/error spikes
 - log นี้ไม่มี User-Agent และ request body จึงวิเคราะห์จาก endpoint/status/rate เป็นหลัก
 - score เป็น explainable heuristic สำหรับจัดลำดับ evidence ไม่ใช่คำตัดสิน 100% จาก signal เดียว

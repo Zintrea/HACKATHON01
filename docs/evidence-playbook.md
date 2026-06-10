@@ -191,7 +191,7 @@ hidden_bonus_candidates.csv
 ถ้าจะ hunt ต่อ ให้โฟกัส:
 
 - endpoint variants: `_`, `E`, `A`, `S`, `N`
-- response size sequence
+- response latency sequence (`latency_ms`)
 - IP attacker group 19 ตัว
 - lines รอบ marker `hackathon#1`
 

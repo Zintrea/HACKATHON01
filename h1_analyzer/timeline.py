@@ -27,8 +27,9 @@ def build_incident_windows(timeline_rows: list[dict]) -> list[dict]:
                 "states_seen": state,
                 "peak_requests": row["total_requests"],
                 "peak_5xx": row["status_5xx"],
+                "peak_p95_latency_ms": row.get("p95_latency_ms", 0),
                 "total_suspicious_requests": row.get("suspicious_requests", 0),
-                "reason": "traffic/error/suspicious-request spike inferred from log metrics",
+                "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics",
             }
         else:
             current["end_time"] = row["minute"]
@@ -37,6 +38,7 @@ def build_incident_windows(timeline_rows: list[dict]) -> list[dict]:
             current["states_seen"] = ";".join(sorted(states))
             current["peak_requests"] = max(current["peak_requests"], row["total_requests"])
             current["peak_5xx"] = max(current["peak_5xx"], row["status_5xx"])
+            current["peak_p95_latency_ms"] = max(current["peak_p95_latency_ms"], row.get("p95_latency_ms", 0))
             current["total_suspicious_requests"] += row.get("suspicious_requests", 0)
 
     if current:

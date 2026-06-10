@@ -23,9 +23,16 @@ class TestStaticDashboard(unittest.TestCase):
         data = json.loads(data_text[len(prefix):].rstrip().rstrip(";"))
         self.assertIn("overview", data)
         self.assertIn("attackers", data)
-        self.assertIn("suffixes", data)
+        self.assertNotIn("suffixes", data)
         self.assertGreaterEqual(len(data["attackers"]), 1)
-        self.assertIn("suffix_sequence", data["overview"])
+        self.assertNotIn("suffix_sequence", data["overview"])
+
+        app = (dashboard / "app.js").read_text(encoding="utf-8")
+        html = (dashboard / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("Suffix clue", app)
+        self.assertNotIn("renderSuffixes", app)
+        self.assertNotIn("Ordered endpoint suffixes", app)
+        self.assertNotIn("Suffix pattern sequence", html)
 
 
 if __name__ == "__main__":

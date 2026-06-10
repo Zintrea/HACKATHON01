@@ -10,8 +10,8 @@ window.H1_DASHBOARD_DATA = {
       "500": 2687007,
       "504": 2685894
     },
-    "suffix_sequence": "_EASRTOLNUYWIMGFDZXVBPC",
-    "note": "No response-time/User-Agent fields; unstable/down windows are inferred from traffic and 5xx patterns."
+    "note": "Latency field present as field 6 (latency_ms). User-Agent is not present; tool fingerprinting from UA is unavailable.",
+    "peak_p95_latency_ms": 12000
   },
   "attackers": [
     {
@@ -726,642 +726,404 @@ window.H1_DASHBOARD_DATA = {
   ],
   "incidents": [
     {
-      "start_time": "6/13/2024 8:17",
-      "end_time": "6/13/2024 8:17",
+      "start_time": "2024-06-13 08:17",
+      "end_time": "2024-06-13 08:17",
       "states_seen": "suspicious",
       "peak_requests": 32,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 248,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/14/2024 7:56",
-      "end_time": "6/14/2024 7:56",
+      "start_time": "2024-06-13 10:00",
+      "end_time": "2024-06-13 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7955,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-06-13 13:00",
+      "end_time": "2024-06-13 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7955,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-06-14 07:56",
+      "end_time": "2024-06-14 07:56",
       "states_seen": "suspicious",
       "peak_requests": 23,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 247,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/14/2024 20:34",
-      "end_time": "6/14/2024 20:34",
+      "start_time": "2024-06-14 20:34",
+      "end_time": "2024-06-14 20:34",
       "states_seen": "suspicious",
       "peak_requests": 26,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 216,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/16/2024 0:59",
-      "end_time": "6/16/2024 0:59",
+      "start_time": "2024-06-16 00:59",
+      "end_time": "2024-06-16 00:59",
       "states_seen": "suspicious",
       "peak_requests": 21,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 230,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/16/2024 10:25",
-      "end_time": "6/21/2024 8:49",
+      "start_time": "2024-06-16 10:25",
+      "end_time": "2024-06-21 08:49",
       "states_seen": "down_or_crashing",
       "peak_requests": 28,
       "peak_5xx": 28,
+      "peak_p95_latency_ms": 12000,
       "total_suspicious_requests": 116054,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/23/2024 11:31",
-      "end_time": "6/23/2024 11:31",
+      "start_time": "2024-06-23 11:31",
+      "end_time": "2024-06-23 11:31",
       "states_seen": "suspicious",
       "peak_requests": 24,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 248,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/25/2024 9:58",
-      "end_time": "6/25/2024 9:58",
+      "start_time": "2024-06-24 10:00",
+      "end_time": "2024-06-24 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 30,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7996,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-06-24 13:00",
+      "end_time": "2024-06-24 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 29,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 8000,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-06-25 09:58",
+      "end_time": "2024-06-25 09:58",
       "states_seen": "suspicious",
       "peak_requests": 26,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 226,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/25/2024 10:02",
-      "end_time": "6/25/2024 10:02",
-      "states_seen": "suspicious",
-      "peak_requests": 25,
+      "start_time": "2024-06-25 10:00",
+      "end_time": "2024-06-25 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 29,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 7888,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/25/2024 17:30",
-      "end_time": "6/29/2024 15:59",
+      "start_time": "2024-06-25 13:00",
+      "end_time": "2024-06-25 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7968,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-06-25 17:30",
+      "end_time": "2024-06-29 15:59",
       "states_seen": "down_or_crashing",
       "peak_requests": 26,
       "peak_5xx": 26,
+      "peak_p95_latency_ms": 12000,
       "total_suspicious_requests": 92781,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "6/29/2024 17:17",
-      "end_time": "6/29/2024 17:17",
+      "start_time": "2024-06-29 17:17",
+      "end_time": "2024-06-29 17:17",
       "states_seen": "suspicious",
       "peak_requests": 24,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 131,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/3/2024 16:51",
-      "end_time": "7/3/2024 16:51",
+      "start_time": "2024-07-02 10:00",
+      "end_time": "2024-07-02 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7962,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-02 13:00",
+      "end_time": "2024-07-02 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 31,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7961,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-03 16:51",
+      "end_time": "2024-07-03 16:51",
       "states_seen": "suspicious",
       "peak_requests": 26,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 237,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/5/2024 11:02",
-      "end_time": "7/8/2024 5:25",
+      "start_time": "2024-07-04 10:00",
+      "end_time": "2024-07-04 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7963,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-04 13:00",
+      "end_time": "2024-07-04 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 28,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7993,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-05 11:02",
+      "end_time": "2024-07-08 05:25",
       "states_seen": "down_or_crashing",
       "peak_requests": 26,
       "peak_5xx": 26,
+      "peak_p95_latency_ms": 12000,
       "total_suspicious_requests": 65431,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/10/2024 13:32",
-      "end_time": "7/10/2024 13:32",
+      "start_time": "2024-07-10 13:32",
+      "end_time": "2024-07-10 13:32",
       "states_seen": "suspicious",
       "peak_requests": 25,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 144,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/10/2024 15:20",
-      "end_time": "7/10/2024 15:20",
+      "start_time": "2024-07-10 15:20",
+      "end_time": "2024-07-10 15:20",
       "states_seen": "suspicious",
       "peak_requests": 23,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 132,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/12/2024 5:51",
-      "end_time": "7/12/2024 5:51",
+      "start_time": "2024-07-12 05:51",
+      "end_time": "2024-07-12 05:51",
       "states_seen": "suspicious",
       "peak_requests": 26,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 146,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/12/2024 9:53",
-      "end_time": "7/12/2024 9:53",
+      "start_time": "2024-07-12 09:53",
+      "end_time": "2024-07-12 09:53",
       "states_seen": "suspicious",
       "peak_requests": 27,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 147,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/14/2024 4:00",
-      "end_time": "7/14/2024 4:00",
+      "start_time": "2024-07-14 04:00",
+      "end_time": "2024-07-14 04:00",
       "states_seen": "suspicious",
       "peak_requests": 22,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 172,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/14/2024 9:01",
-      "end_time": "7/14/2024 9:01",
+      "start_time": "2024-07-14 09:01",
+      "end_time": "2024-07-14 09:01",
       "states_seen": "suspicious",
       "peak_requests": 23,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 236,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/17/2024 4:04",
-      "end_time": "7/19/2024 9:30",
+      "start_time": "2024-07-15 10:00",
+      "end_time": "2024-07-15 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 26,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7986,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-15 13:00",
+      "end_time": "2024-07-15 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7991,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-16 10:00",
+      "end_time": "2024-07-16 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7930,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-16 13:00",
+      "end_time": "2024-07-16 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 29,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7960,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-17 04:04",
+      "end_time": "2024-07-19 09:30",
       "states_seen": "down_or_crashing",
       "peak_requests": 26,
       "peak_5xx": 26,
+      "peak_p95_latency_ms": 12000,
       "total_suspicious_requests": 52606,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/19/2024 20:45",
-      "end_time": "7/19/2024 20:45",
+      "start_time": "2024-07-19 20:45",
+      "end_time": "2024-07-19 20:45",
       "states_seen": "suspicious",
       "peak_requests": 25,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 244,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/20/2024 4:39",
-      "end_time": "7/20/2024 4:39",
+      "start_time": "2024-07-20 04:39",
+      "end_time": "2024-07-20 04:39",
       "states_seen": "suspicious",
       "peak_requests": 25,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 235,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/20/2024 13:28",
-      "end_time": "7/20/2024 13:28",
+      "start_time": "2024-07-20 13:28",
+      "end_time": "2024-07-20 13:28",
       "states_seen": "suspicious",
       "peak_requests": 25,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 246,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/21/2024 13:24",
-      "end_time": "7/21/2024 13:24",
+      "start_time": "2024-07-21 13:24",
+      "end_time": "2024-07-21 13:24",
       "states_seen": "suspicious",
       "peak_requests": 17,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 225,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "7/24/2024 2:02",
-      "end_time": "7/28/2024 3:43",
-      "states_seen": "down_or_crashing",
-      "peak_requests": 27,
-      "peak_5xx": 27,
-      "total_suspicious_requests": 95804,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "7/30/2024 18:57",
-      "end_time": "8/3/2024 0:20",
-      "states_seen": "down_or_crashing",
-      "peak_requests": 28,
-      "peak_5xx": 28,
-      "total_suspicious_requests": 75838,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/3/2024 8:10",
-      "end_time": "8/3/2024 8:10",
-      "states_seen": "suspicious",
-      "peak_requests": 20,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/4/2024 9:57",
-      "end_time": "8/4/2024 9:57",
-      "states_seen": "suspicious",
-      "peak_requests": 23,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/10/2024 11:42",
-      "end_time": "8/12/2024 12:34",
-      "states_seen": "down_or_crashing",
-      "peak_requests": 25,
-      "peak_5xx": 25,
-      "total_suspicious_requests": 47873,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/12/2024 17:16",
-      "end_time": "8/12/2024 17:16",
-      "states_seen": "suspicious",
+      "start_time": "2024-07-22 10:00",
+      "end_time": "2024-07-22 11:11",
+      "states_seen": "slow_or_unstable",
       "peak_requests": 26,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 7951,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     },
     {
-      "start_time": "8/16/2024 9:33",
-      "end_time": "8/16/2024 9:33",
-      "states_seen": "suspicious",
+      "start_time": "2024-07-22 11:13",
+      "end_time": "2024-07-22 11:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 27,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7994,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-22 13:00",
+      "end_time": "2024-07-22 15:59",
+      "states_seen": "slow_or_unstable",
+      "peak_requests": 29,
+      "peak_5xx": 0,
+      "peak_p95_latency_ms": 7954,
+      "total_suspicious_requests": 0,
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
+    },
+    {
+      "start_time": "2024-07-23 10:00",
+      "end_time": "2024-07-23 11:59",
+      "states_seen": "slow_or_unstable",
       "peak_requests": 28,
       "peak_5xx": 0,
+      "peak_p95_latency_ms": 7942,
       "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/16/2024 18:16",
-      "end_time": "8/16/2024 18:16",
-      "states_seen": "suspicious",
-      "peak_requests": 26,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/16/2024 22:57",
-      "end_time": "8/21/2024 4:19",
-      "states_seen": "down_or_crashing",
-      "peak_requests": 27,
-      "peak_5xx": 27,
-      "total_suspicious_requests": 99697,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/21/2024 9:32",
-      "end_time": "8/21/2024 9:32",
-      "states_seen": "suspicious",
-      "peak_requests": 21,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/21/2024 11:45",
-      "end_time": "8/21/2024 11:45",
-      "states_seen": "suspicious",
-      "peak_requests": 24,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/22/2024 4:27",
-      "end_time": "8/22/2024 4:27",
-      "states_seen": "suspicious",
-      "peak_requests": 20,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/23/2024 13:12",
-      "end_time": "8/23/2024 13:12",
-      "states_seen": "suspicious",
-      "peak_requests": 25,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/23/2024 20:39",
-      "end_time": "8/23/2024 20:39",
-      "states_seen": "suspicious",
-      "peak_requests": 23,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/24/2024 21:25",
-      "end_time": "8/24/2024 21:25",
-      "states_seen": "suspicious",
-      "peak_requests": 23,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/25/2024 9:48",
-      "end_time": "8/25/2024 9:48",
-      "states_seen": "suspicious",
-      "peak_requests": 27,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    },
-    {
-      "start_time": "8/25/2024 20:41",
-      "end_time": "8/25/2024 20:41",
-      "states_seen": "suspicious",
-      "peak_requests": 25,
-      "peak_5xx": 0,
-      "total_suspicious_requests": 0,
-      "reason": "traffic/error/suspicious-request spike inferred from log metrics"
-    }
-  ],
-  "suffixes": [
-    {
-      "suffix": "_",
-      "first_rank": 1,
-      "endpoint_count": 6,
-      "total_requests": 914673,
-      "total_5xx": 914673,
-      "status_500": 458468,
-      "status_504": 456205,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/cart_;/search_;/api/v1/user_;/products_;/checkout_;/index_.html"
-    },
-    {
-      "suffix": "E",
-      "first_rank": 7,
-      "endpoint_count": 6,
-      "total_requests": 679253,
-      "total_5xx": 679253,
-      "status_500": 339596,
-      "status_504": 339657,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/searchE;/indexE.html;/cartE;/productsE;/api/v1/userE;/checkoutE"
-    },
-    {
-      "suffix": "A",
-      "first_rank": 13,
-      "endpoint_count": 6,
-      "total_requests": 589133,
-      "total_5xx": 589133,
-      "status_500": 294892,
-      "status_504": 294241,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/api/v1/userA;/productsA;/cartA;/checkoutA;/searchA;/indexA.html"
-    },
-    {
-      "suffix": "S",
-      "first_rank": 19,
-      "endpoint_count": 6,
-      "total_requests": 357632,
-      "total_5xx": 357632,
-      "status_500": 179019,
-      "status_504": 178613,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/checkoutS;/api/v1/userS;/cartS;/searchS;/indexS.html;/productsS"
-    },
-    {
-      "suffix": "R",
-      "first_rank": 25,
-      "endpoint_count": 6,
-      "total_requests": 332698,
-      "total_5xx": 332698,
-      "status_500": 166291,
-      "status_504": 166407,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/searchR;/checkoutR;/productsR;/cartR;/indexR.html;/api/v1/userR"
-    },
-    {
-      "suffix": "T",
-      "first_rank": 31,
-      "endpoint_count": 6,
-      "total_requests": 315862,
-      "total_5xx": 315862,
-      "status_500": 157754,
-      "status_504": 158108,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/cartT;/api/v1/userT;/searchT;/productsT;/checkoutT;/indexT.html"
-    },
-    {
-      "suffix": "O",
-      "first_rank": 37,
-      "endpoint_count": 6,
-      "total_requests": 306732,
-      "total_5xx": 306732,
-      "status_500": 153901,
-      "status_504": 152831,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/checkoutO;/indexO.html;/productsO;/cartO;/api/v1/userO;/searchO"
-    },
-    {
-      "suffix": "L",
-      "first_rank": 43,
-      "endpoint_count": 6,
-      "total_requests": 207519,
-      "total_5xx": 207519,
-      "status_500": 103816,
-      "status_504": 103703,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/indexL.html;/productsL;/checkoutL;/cartL;/api/v1/userL;/searchL"
-    },
-    {
-      "suffix": "N",
-      "first_rank": 49,
-      "endpoint_count": 6,
-      "total_requests": 196493,
-      "total_5xx": 196493,
-      "status_500": 97954,
-      "status_504": 98539,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/checkoutN;/cartN;/productsN;/indexN.html;/searchN;/api/v1/userN"
-    },
-    {
-      "suffix": "U",
-      "first_rank": 54,
-      "endpoint_count": 6,
-      "total_requests": 192295,
-      "total_5xx": 192295,
-      "status_500": 96166,
-      "status_504": 96129,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/cartU;/checkoutU;/api/v1/userU;/searchU;/productsU;/indexU.html"
-    },
-    {
-      "suffix": "Y",
-      "first_rank": 60,
-      "endpoint_count": 6,
-      "total_requests": 189126,
-      "total_5xx": 189126,
-      "status_500": 93850,
-      "status_504": 95276,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/api/v1/userY;/productsY;/cartY;/checkoutY;/indexY.html;/searchY"
-    },
-    {
-      "suffix": "W",
-      "first_rank": 67,
-      "endpoint_count": 6,
-      "total_requests": 152426,
-      "total_5xx": 152426,
-      "status_500": 76274,
-      "status_504": 76152,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/searchW;/cartW;/indexW.html;/productsW;/api/v1/userW;/checkoutW"
-    },
-    {
-      "suffix": "I",
-      "first_rank": 72,
-      "endpoint_count": 6,
-      "total_requests": 150682,
-      "total_5xx": 150682,
-      "status_500": 75184,
-      "status_504": 75498,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/checkoutI;/api/v1/userI;/indexI.html;/searchI;/cartI;/productsI"
-    },
-    {
-      "suffix": "M",
-      "first_rank": 79,
-      "endpoint_count": 6,
-      "total_requests": 145520,
-      "total_5xx": 145520,
-      "status_500": 72937,
-      "status_504": 72583,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/api/v1/userM;/checkoutM;/searchM;/cartM;/indexM.html;/productsM"
-    },
-    {
-      "suffix": "G",
-      "first_rank": 85,
-      "endpoint_count": 6,
-      "total_requests": 97010,
-      "total_5xx": 97010,
-      "status_500": 48573,
-      "status_504": 48437,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/searchG;/checkoutG;/productsG;/indexG.html;/api/v1/userG;/cartG"
-    },
-    {
-      "suffix": "F",
-      "first_rank": 91,
-      "endpoint_count": 6,
-      "total_requests": 81332,
-      "total_5xx": 81332,
-      "status_500": 40590,
-      "status_504": 40742,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/searchF;/productsF;/cartF;/api/v1/userF;/checkoutF;/indexF.html"
-    },
-    {
-      "suffix": "D",
-      "first_rank": 97,
-      "endpoint_count": 6,
-      "total_requests": 79990,
-      "total_5xx": 79990,
-      "status_500": 40046,
-      "status_504": 39944,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/indexD.html;/api/v1/userD;/cartD;/productsD;/searchD;/checkoutD"
-    },
-    {
-      "suffix": "Z",
-      "first_rank": 103,
-      "endpoint_count": 6,
-      "total_requests": 70896,
-      "total_5xx": 70896,
-      "status_500": 35244,
-      "status_504": 35652,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/searchZ;/cartZ;/checkoutZ;/indexZ.html;/api/v1/userZ;/productsZ"
-    },
-    {
-      "suffix": "X",
-      "first_rank": 106,
-      "endpoint_count": 6,
-      "total_requests": 70783,
-      "total_5xx": 70783,
-      "status_500": 35297,
-      "status_504": 35486,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/productsX;/searchX;/api/v1/userX;/indexX.html;/cartX;/checkoutX"
-    },
-    {
-      "suffix": "V",
-      "first_rank": 115,
-      "endpoint_count": 6,
-      "total_requests": 68715,
-      "total_5xx": 68715,
-      "status_500": 34157,
-      "status_504": 34558,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/cartV;/indexV.html;/productsV;/searchV;/api/v1/userV;/checkoutV"
-    },
-    {
-      "suffix": "B",
-      "first_rank": 121,
-      "endpoint_count": 6,
-      "total_requests": 65738,
-      "total_5xx": 65738,
-      "status_500": 32920,
-      "status_504": 32818,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/api/v1/userB;/productsB;/cartB;/checkoutB;/searchB;/indexB.html"
-    },
-    {
-      "suffix": "P",
-      "first_rank": 127,
-      "endpoint_count": 6,
-      "total_requests": 54849,
-      "total_5xx": 54849,
-      "status_500": 27311,
-      "status_504": 27538,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/api/v1/userP;/searchP;/indexP.html;/checkoutP;/productsP;/cartP"
-    },
-    {
-      "suffix": "C",
-      "first_rank": 131,
-      "endpoint_count": 6,
-      "total_requests": 53544,
-      "total_5xx": 53544,
-      "status_500": 26767,
-      "status_504": 26777,
-      "unique_ips_max": 19,
-      "bases_seen": "/api/v1/user;/cart;/checkout;/index.html;/products;/search",
-      "examples": "/searchC;/cartC;/indexC.html;/productsC;/api/v1/userC;/checkoutC"
+      "reason": "measured latency plus traffic/error/suspicious-request spike from log metrics"
     }
   ],
   "evidence": [
@@ -1372,7 +1134,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 10738,
+      "latency_ms": 10738,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1383,7 +1145,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 11540,
+      "latency_ms": 11540,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1394,7 +1156,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 504,
-      "size": 8720,
+      "latency_ms": 8720,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1405,7 +1167,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 504,
-      "size": 11495,
+      "latency_ms": 11495,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1416,7 +1178,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 500,
-      "size": 11261,
+      "latency_ms": 11261,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1427,7 +1189,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 500,
-      "size": 8548,
+      "latency_ms": 8548,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1438,7 +1200,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 504,
-      "size": 6218,
+      "latency_ms": 6218,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1449,7 +1211,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 500,
-      "size": 9821,
+      "latency_ms": 9821,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1460,7 +1222,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 10795,
+      "latency_ms": 10795,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1471,7 +1233,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 504,
-      "size": 11627,
+      "latency_ms": 11627,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1482,7 +1244,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 500,
-      "size": 10754,
+      "latency_ms": 10754,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1493,7 +1255,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 504,
-      "size": 6364,
+      "latency_ms": 6364,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1504,7 +1266,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 504,
-      "size": 8877,
+      "latency_ms": 8877,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1515,7 +1277,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 504,
-      "size": 6241,
+      "latency_ms": 6241,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1526,7 +1288,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 11184,
+      "latency_ms": 11184,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1537,7 +1299,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 9484,
+      "latency_ms": 9484,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1548,7 +1310,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 7809,
+      "latency_ms": 7809,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1559,7 +1321,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 11095,
+      "latency_ms": 11095,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1570,7 +1332,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 504,
-      "size": 8773,
+      "latency_ms": 8773,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1581,7 +1343,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 500,
-      "size": 8151,
+      "latency_ms": 8151,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1592,7 +1354,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 6152,
+      "latency_ms": 6152,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1603,7 +1365,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 11985,
+      "latency_ms": 11985,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1614,7 +1376,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 500,
-      "size": 6860,
+      "latency_ms": 6860,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1625,7 +1387,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 500,
-      "size": 7809,
+      "latency_ms": 7809,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1636,7 +1398,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 500,
-      "size": 8118,
+      "latency_ms": 8118,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1647,7 +1409,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 10791,
+      "latency_ms": 10791,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1658,7 +1420,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 500,
-      "size": 11543,
+      "latency_ms": 11543,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1669,7 +1431,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 7048,
+      "latency_ms": 7048,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1680,7 +1442,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 504,
-      "size": 6281,
+      "latency_ms": 6281,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1691,7 +1453,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 500,
-      "size": 9964,
+      "latency_ms": 9964,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1702,7 +1464,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 504,
-      "size": 8756,
+      "latency_ms": 8756,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1713,7 +1475,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 6506,
+      "latency_ms": 6506,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1724,7 +1486,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 504,
-      "size": 7507,
+      "latency_ms": 7507,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1735,7 +1497,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 11842,
+      "latency_ms": 11842,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1746,7 +1508,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 500,
-      "size": 8328,
+      "latency_ms": 8328,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1757,7 +1519,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 500,
-      "size": 7465,
+      "latency_ms": 7465,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1768,7 +1530,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 504,
-      "size": 11627,
+      "latency_ms": 11627,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1779,7 +1541,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 9250,
+      "latency_ms": 9250,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1790,7 +1552,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 500,
-      "size": 7323,
+      "latency_ms": 7323,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1801,7 +1563,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 504,
-      "size": 8565,
+      "latency_ms": 8565,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1812,7 +1574,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 504,
-      "size": 9191,
+      "latency_ms": 9191,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1823,7 +1585,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 500,
-      "size": 8889,
+      "latency_ms": 8889,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1834,7 +1596,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 504,
-      "size": 10622,
+      "latency_ms": 10622,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1845,7 +1607,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 504,
-      "size": 10939,
+      "latency_ms": 10939,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1856,7 +1618,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 500,
-      "size": 7271,
+      "latency_ms": 7271,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1867,7 +1629,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 504,
-      "size": 10847,
+      "latency_ms": 10847,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1878,7 +1640,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 500,
-      "size": 6920,
+      "latency_ms": 6920,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1889,7 +1651,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 500,
-      "size": 10066,
+      "latency_ms": 10066,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1900,7 +1662,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 500,
-      "size": 6788,
+      "latency_ms": 6788,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1911,7 +1673,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 6731,
+      "latency_ms": 6731,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1922,7 +1684,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 500,
-      "size": 6154,
+      "latency_ms": 6154,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1933,7 +1695,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 504,
-      "size": 8482,
+      "latency_ms": 8482,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1944,7 +1706,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 504,
-      "size": 7948,
+      "latency_ms": 7948,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1955,7 +1717,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 10074,
+      "latency_ms": 10074,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1966,7 +1728,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 500,
-      "size": 9389,
+      "latency_ms": 9389,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1977,7 +1739,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/searchN",
       "status": 500,
-      "size": 10474,
+      "latency_ms": 10474,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1988,7 +1750,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 504,
-      "size": 8435,
+      "latency_ms": 8435,
       "score": 4,
       "reasons": "server_error"
     },
@@ -1999,7 +1761,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 504,
-      "size": 9058,
+      "latency_ms": 9058,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2010,7 +1772,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 500,
-      "size": 8140,
+      "latency_ms": 8140,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2021,7 +1783,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 504,
-      "size": 11289,
+      "latency_ms": 11289,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2032,7 +1794,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 500,
-      "size": 9845,
+      "latency_ms": 9845,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2043,7 +1805,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 504,
-      "size": 7228,
+      "latency_ms": 7228,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2054,7 +1816,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 504,
-      "size": 11677,
+      "latency_ms": 11677,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2065,7 +1827,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 500,
-      "size": 6779,
+      "latency_ms": 6779,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2076,7 +1838,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 7743,
+      "latency_ms": 7743,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2087,7 +1849,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 8383,
+      "latency_ms": 8383,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2098,7 +1860,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 6860,
+      "latency_ms": 6860,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2109,7 +1871,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/productsN",
       "status": 500,
-      "size": 8378,
+      "latency_ms": 8378,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2120,7 +1882,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 10758,
+      "latency_ms": 10758,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2131,7 +1893,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 10488,
+      "latency_ms": 10488,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2142,7 +1904,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 6223,
+      "latency_ms": 6223,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2153,7 +1915,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 500,
-      "size": 11204,
+      "latency_ms": 11204,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2164,7 +1926,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/api/v1/userN",
       "status": 504,
-      "size": 9784,
+      "latency_ms": 9784,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2175,7 +1937,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 9312,
+      "latency_ms": 9312,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2186,7 +1948,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 11897,
+      "latency_ms": 11897,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2197,7 +1959,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 10307,
+      "latency_ms": 10307,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2208,7 +1970,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 504,
-      "size": 8009,
+      "latency_ms": 8009,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2219,7 +1981,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/indexN.html",
       "status": 500,
-      "size": 8554,
+      "latency_ms": 8554,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2230,7 +1992,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "POST",
       "endpoint": "/checkoutN",
       "status": 500,
-      "size": 8956,
+      "latency_ms": 8956,
       "score": 4,
       "reasons": "server_error"
     },
@@ -2241,7 +2003,7 @@ window.H1_DASHBOARD_DATA = {
       "method": "GET",
       "endpoint": "/cartN",
       "status": 504,
-      "size": 7035,
+      "latency_ms": 7035,
       "score": 4,
       "reasons": "server_error"
     }
@@ -2250,7 +2012,6 @@ window.H1_DASHBOARD_DATA = {
     "attacker_ips": "output/attacker_ips.csv",
     "endpoint_summary": "output/endpoint_summary.csv",
     "incident_windows": "output/incident_windows.csv",
-    "suffix_patterns": "output/suffix_patterns.csv",
     "suspicious_requests": "output/suspicious_requests.csv"
   }
 };

@@ -52,15 +52,15 @@ ATTACKER_FIELDS = [
 ]
 TIMELINE_FIELDS = [
     "minute", "total_requests", "status_2xx", "status_3xx", "status_4xx", "status_5xx",
-    "unique_ips", "suspicious_requests", "system_state",
+    "unique_ips", "suspicious_requests", "avg_latency_ms", "p95_latency_ms", "max_latency_ms", "system_state",
 ]
-INCIDENT_FIELDS = ["start_time", "end_time", "states_seen", "peak_requests", "peak_5xx", "total_suspicious_requests", "reason"]
+INCIDENT_FIELDS = ["start_time", "end_time", "states_seen", "peak_requests", "peak_5xx", "peak_p95_latency_ms", "total_suspicious_requests", "reason"]
 ENDPOINT_FIELDS = [
     "endpoint", "total_requests", "unique_ips", "status_200", "status_302", "status_304",
     "status_401", "status_403", "status_404", "status_500", "status_504", "status_5xx",
     "payload_hits", "attack_type",
 ]
-EVIDENCE_FIELDS = ["line_number", "timestamp", "ip", "method", "endpoint", "status", "size", "score", "reasons"]
+EVIDENCE_FIELDS = ["line_number", "timestamp", "ip", "method", "endpoint", "status", "latency_ms", "score", "reasons"]
 HIDDEN_FIELDS = ["candidate", "confidence", "clue_type", "decode_method", "timestamp", "ip", "endpoint", "reason"]
 
 
@@ -102,7 +102,7 @@ def run_analysis(log_path: Path, output_dir: Path, max_lines: Optional[int] = No
         "unique_ips": len(state.unique_ips_seen) if state.parsed_lines <= 1_000_000 else "not_tracked_for_full_run",
         "suspicious_ips": len(suspicious_attackers),
         "status_counts": dict(sorted(state.status_counts.items())),
-        "note": "No response-time/User-Agent fields in this log; unstable windows are inferred from traffic/error spikes.",
+        "note": "Latency field present as field 6 (latency_ms). User-Agent is not present; tool fingerprinting from UA is unavailable.",
     }
 
     write_csv(output_dir / "attacker_ips.csv", suspicious_attackers, ATTACKER_FIELDS)

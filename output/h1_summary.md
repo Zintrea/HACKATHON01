@@ -10,7 +10,7 @@
 - **unique_ips**: not_tracked_for_full_run
 - **suspicious_ips**: 19
 - **status_counts**: {200: 10608035, 304: 2581383, 404: 2584078, 500: 2687007, 504: 2685894}
-- **note**: No response-time/User-Agent fields in this log; unstable windows are inferred from traffic/error spikes.
+- **note**: Latency field present as field 6 (latency_ms). User-Agent is not present; tool fingerprinting from UA is unavailable.
 
 ## 2. WHO ARE THEY — Top Suspicious IPs
 
@@ -38,393 +38,671 @@
 
 ## 3. WHEN — Incident Windows
 
-| Window | Start | End | States | Peak Req/min | Peak 5xx/min | Reason |
-|---:|---|---|---|---:|---:|---|
-| 1 | 2024-06-13 08:17 | 2024-06-13 08:17 | suspicious | 32 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 2 | 2024-06-14 07:56 | 2024-06-14 07:56 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 3 | 2024-06-14 20:34 | 2024-06-14 20:34 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 4 | 2024-06-16 00:59 | 2024-06-16 00:59 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 5 | 2024-06-16 10:25 | 2024-06-21 08:49 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 6 | 2024-06-23 11:31 | 2024-06-23 11:31 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 7 | 2024-06-25 09:58 | 2024-06-25 09:58 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 8 | 2024-06-25 10:02 | 2024-06-25 10:02 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 9 | 2024-06-25 17:30 | 2024-06-29 15:59 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 10 | 2024-06-29 17:17 | 2024-06-29 17:17 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 11 | 2024-07-03 16:51 | 2024-07-03 16:51 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 12 | 2024-07-05 11:02 | 2024-07-08 05:25 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 13 | 2024-07-10 13:32 | 2024-07-10 13:32 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 14 | 2024-07-10 15:20 | 2024-07-10 15:20 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 15 | 2024-07-12 05:51 | 2024-07-12 05:51 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 16 | 2024-07-12 09:53 | 2024-07-12 09:53 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 17 | 2024-07-14 04:00 | 2024-07-14 04:00 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 18 | 2024-07-14 09:01 | 2024-07-14 09:01 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 19 | 2024-07-17 04:04 | 2024-07-19 09:30 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 20 | 2024-07-19 20:45 | 2024-07-19 20:45 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 21 | 2024-07-20 04:39 | 2024-07-20 04:39 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 22 | 2024-07-20 13:28 | 2024-07-20 13:28 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 23 | 2024-07-21 13:24 | 2024-07-21 13:24 | suspicious | 17 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 24 | 2024-07-24 02:02 | 2024-07-28 03:43 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 25 | 2024-07-30 18:57 | 2024-08-03 00:20 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 26 | 2024-08-03 08:10 | 2024-08-03 08:10 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 27 | 2024-08-04 09:57 | 2024-08-04 09:57 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 28 | 2024-08-10 11:42 | 2024-08-12 12:34 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 29 | 2024-08-12 17:16 | 2024-08-12 17:16 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 30 | 2024-08-16 09:33 | 2024-08-16 09:33 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 31 | 2024-08-16 18:16 | 2024-08-16 18:16 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 32 | 2024-08-16 22:57 | 2024-08-21 04:19 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 33 | 2024-08-21 09:32 | 2024-08-21 09:32 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 34 | 2024-08-21 11:45 | 2024-08-21 11:45 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 35 | 2024-08-22 04:27 | 2024-08-22 04:27 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 36 | 2024-08-23 13:12 | 2024-08-23 13:12 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 37 | 2024-08-23 20:39 | 2024-08-23 20:39 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 38 | 2024-08-24 21:25 | 2024-08-24 21:25 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 39 | 2024-08-25 09:48 | 2024-08-25 09:48 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 40 | 2024-08-25 20:41 | 2024-08-25 20:41 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 41 | 2024-08-27 09:56 | 2024-08-27 09:56 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 42 | 2024-08-27 19:54 | 2024-08-27 19:54 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 43 | 2024-08-27 23:07 | 2024-08-27 23:07 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 44 | 2024-08-28 06:00 | 2024-08-28 06:00 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 45 | 2024-08-29 16:39 | 2024-09-01 19:18 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 46 | 2024-09-05 18:57 | 2024-09-05 18:57 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 47 | 2024-09-06 18:39 | 2024-09-06 18:39 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 48 | 2024-09-07 06:55 | 2024-09-07 06:55 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 49 | 2024-09-07 11:52 | 2024-09-07 11:52 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 50 | 2024-09-08 16:53 | 2024-09-12 18:39 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 51 | 2024-09-13 17:55 | 2024-09-13 17:55 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 52 | 2024-09-13 19:32 | 2024-09-13 19:32 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 53 | 2024-09-15 12:14 | 2024-09-15 12:14 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 54 | 2024-09-19 23:07 | 2024-09-19 23:07 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 55 | 2024-09-20 13:16 | 2024-09-20 13:16 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 56 | 2024-09-21 10:53 | 2024-09-21 10:53 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 57 | 2024-09-21 14:37 | 2024-09-24 04:42 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 58 | 2024-09-28 18:34 | 2024-09-28 18:34 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 59 | 2024-09-29 12:44 | 2024-09-29 12:44 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 60 | 2024-09-29 19:31 | 2024-09-29 19:31 | suspicious | 29 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 61 | 2024-10-01 08:44 | 2024-10-01 08:44 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 62 | 2024-10-01 16:08 | 2024-10-01 16:08 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 63 | 2024-10-05 18:20 | 2024-10-05 18:20 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 64 | 2024-10-12 01:01 | 2024-10-12 01:01 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 65 | 2024-10-13 03:46 | 2024-10-13 03:46 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 66 | 2024-10-14 12:50 | 2024-10-14 12:50 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 67 | 2024-10-15 17:33 | 2024-10-15 17:33 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 68 | 2024-10-15 21:21 | 2024-10-15 21:21 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 69 | 2024-10-19 07:46 | 2024-10-19 07:46 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 70 | 2024-10-21 01:22 | 2024-10-21 01:22 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 71 | 2024-10-21 01:47 | 2024-10-21 01:47 | suspicious | 29 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 72 | 2024-10-21 07:39 | 2024-10-23 11:47 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 73 | 2024-10-24 12:34 | 2024-10-24 12:34 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 74 | 2024-10-24 23:04 | 2024-10-24 23:04 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 75 | 2024-10-25 05:04 | 2024-10-25 05:04 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 76 | 2024-10-27 15:28 | 2024-10-31 11:57 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 77 | 2024-11-01 05:08 | 2024-11-01 05:08 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 78 | 2024-11-01 10:05 | 2024-11-01 10:05 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 79 | 2024-11-03 03:52 | 2024-11-07 18:52 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 80 | 2024-11-07 21:49 | 2024-11-07 21:49 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 81 | 2024-11-11 04:28 | 2024-11-15 00:39 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 82 | 2024-11-17 13:07 | 2024-11-17 13:07 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 83 | 2024-11-21 07:59 | 2024-11-21 07:59 | suspicious | 32 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 84 | 2024-11-21 09:58 | 2024-11-21 09:58 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 85 | 2024-11-21 16:07 | 2024-11-21 16:07 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 86 | 2024-11-22 14:32 | 2024-11-26 00:45 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 87 | 2024-11-26 07:01 | 2024-11-26 07:01 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 88 | 2024-11-28 12:21 | 2024-11-28 12:21 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 89 | 2024-11-29 16:21 | 2024-11-29 16:21 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 90 | 2024-12-04 09:43 | 2024-12-04 09:43 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 91 | 2024-12-07 12:50 | 2024-12-07 12:50 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 92 | 2024-12-07 16:50 | 2024-12-07 16:50 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 93 | 2024-12-07 18:06 | 2024-12-07 18:06 | suspicious | 18 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 94 | 2024-12-08 22:55 | 2024-12-08 22:55 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 95 | 2024-12-14 13:08 | 2024-12-14 13:08 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 96 | 2024-12-14 22:40 | 2024-12-14 22:40 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 97 | 2024-12-15 08:39 | 2024-12-15 08:39 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 98 | 2024-12-17 14:10 | 2024-12-17 14:10 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 99 | 2024-12-18 03:49 | 2024-12-18 03:49 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 100 | 2024-12-19 02:20 | 2024-12-19 02:20 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 101 | 2024-12-19 04:02 | 2024-12-23 12:06 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 102 | 2024-12-23 18:47 | 2024-12-23 18:47 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 103 | 2024-12-24 05:01 | 2024-12-24 05:01 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 104 | 2024-12-24 17:33 | 2024-12-24 17:33 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 105 | 2024-12-26 05:09 | 2024-12-28 06:49 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 106 | 2024-12-29 02:33 | 2024-12-29 02:33 | suspicious | 29 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 107 | 2024-12-31 00:51 | 2025-01-04 07:15 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 108 | 2025-01-05 13:26 | 2025-01-05 13:26 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 109 | 2025-01-05 13:29 | 2025-01-05 13:29 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 110 | 2025-01-06 12:45 | 2025-01-06 12:45 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 111 | 2025-01-06 18:31 | 2025-01-11 04:49 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 112 | 2025-01-11 19:49 | 2025-01-11 19:49 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 113 | 2025-01-13 19:21 | 2025-01-13 19:21 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 114 | 2025-01-15 03:39 | 2025-01-20 02:40 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 115 | 2025-01-21 10:04 | 2025-01-21 10:04 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 116 | 2025-01-22 19:06 | 2025-01-25 15:49 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 117 | 2025-01-26 18:59 | 2025-01-26 18:59 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 118 | 2025-01-26 23:38 | 2025-01-26 23:38 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 119 | 2025-01-28 18:04 | 2025-01-28 18:04 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 120 | 2025-01-28 20:42 | 2025-02-01 03:51 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 121 | 2025-02-03 22:01 | 2025-02-03 22:01 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 122 | 2025-02-06 03:38 | 2025-02-06 03:38 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 123 | 2025-02-06 22:47 | 2025-02-06 22:47 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 124 | 2025-02-10 07:39 | 2025-02-10 07:39 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 125 | 2025-02-15 17:07 | 2025-02-15 17:07 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 126 | 2025-02-16 06:38 | 2025-02-16 06:38 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 127 | 2025-02-16 14:54 | 2025-02-16 14:54 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 128 | 2025-02-17 17:33 | 2025-02-17 17:33 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 129 | 2025-02-18 20:36 | 2025-02-18 20:36 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 130 | 2025-02-19 17:02 | 2025-02-19 17:02 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 131 | 2025-02-20 00:54 | 2025-02-20 00:54 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 132 | 2025-02-20 16:03 | 2025-02-20 16:03 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 133 | 2025-02-22 18:29 | 2025-02-22 18:29 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 134 | 2025-02-25 09:15 | 2025-02-25 09:15 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 135 | 2025-02-25 13:55 | 2025-02-25 13:55 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 136 | 2025-02-25 15:59 | 2025-02-25 15:59 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 137 | 2025-02-26 12:38 | 2025-02-26 12:38 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 138 | 2025-02-27 23:55 | 2025-03-03 21:00 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 139 | 2025-03-06 03:43 | 2025-03-06 03:43 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 140 | 2025-03-06 12:40 | 2025-03-09 00:30 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 141 | 2025-03-13 02:25 | 2025-03-13 02:25 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 142 | 2025-03-14 04:49 | 2025-03-14 04:49 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 143 | 2025-03-14 17:37 | 2025-03-14 17:37 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 144 | 2025-03-16 08:10 | 2025-03-16 08:10 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 145 | 2025-03-17 20:29 | 2025-03-17 20:29 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 146 | 2025-03-19 10:07 | 2025-03-19 10:07 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 147 | 2025-03-19 10:38 | 2025-03-19 10:38 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 148 | 2025-03-19 15:34 | 2025-03-22 15:51 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 149 | 2025-03-24 00:45 | 2025-03-24 00:45 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 150 | 2025-04-01 21:29 | 2025-04-01 21:29 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 151 | 2025-04-02 02:37 | 2025-04-02 02:37 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 152 | 2025-04-02 04:09 | 2025-04-02 04:09 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 153 | 2025-04-02 07:55 | 2025-04-05 11:58 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 154 | 2025-04-05 20:32 | 2025-04-05 20:32 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 155 | 2025-04-06 11:23 | 2025-04-06 11:23 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 156 | 2025-04-07 21:52 | 2025-04-07 21:52 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 157 | 2025-04-08 10:13 | 2025-04-11 04:23 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 158 | 2025-04-11 15:36 | 2025-04-11 15:36 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 159 | 2025-04-12 13:06 | 2025-04-12 13:06 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 160 | 2025-04-14 01:32 | 2025-04-14 01:32 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 161 | 2025-04-16 14:16 | 2025-04-16 14:16 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 162 | 2025-04-19 07:36 | 2025-04-19 07:36 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 163 | 2025-04-19 09:23 | 2025-04-19 09:23 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 164 | 2025-04-20 02:10 | 2025-04-20 02:10 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 165 | 2025-04-21 02:20 | 2025-04-21 02:20 | suspicious | 30 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 166 | 2025-04-21 23:59 | 2025-04-21 23:59 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 167 | 2025-04-22 09:20 | 2025-04-27 03:12 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 168 | 2025-04-29 12:17 | 2025-04-29 12:17 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 169 | 2025-04-30 06:45 | 2025-04-30 06:45 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 170 | 2025-05-01 12:00 | 2025-05-01 12:00 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 171 | 2025-05-01 22:55 | 2025-05-01 22:55 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 172 | 2025-05-02 02:29 | 2025-05-02 02:29 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 173 | 2025-05-02 21:17 | 2025-05-02 21:17 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 174 | 2025-05-05 01:04 | 2025-05-05 01:04 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 175 | 2025-05-07 09:22 | 2025-05-07 09:22 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 176 | 2025-05-12 17:04 | 2025-05-12 17:04 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 177 | 2025-05-12 17:41 | 2025-05-12 17:41 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 178 | 2025-05-15 10:34 | 2025-05-18 10:25 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 179 | 2025-05-20 19:10 | 2025-05-22 21:06 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 180 | 2025-05-23 10:08 | 2025-05-23 10:08 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 181 | 2025-05-24 14:45 | 2025-05-24 14:45 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 182 | 2025-05-26 01:19 | 2025-05-30 17:46 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 183 | 2025-05-30 19:14 | 2025-05-30 19:14 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 184 | 2025-05-31 20:16 | 2025-05-31 20:16 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 185 | 2025-06-01 03:46 | 2025-06-01 03:46 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 186 | 2025-06-01 14:15 | 2025-06-01 14:15 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 187 | 2025-06-03 14:05 | 2025-06-03 14:05 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 188 | 2025-06-05 18:04 | 2025-06-08 03:19 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 189 | 2025-06-10 00:58 | 2025-06-10 00:58 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 190 | 2025-06-10 21:22 | 2025-06-10 21:22 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 191 | 2025-06-12 02:36 | 2025-06-12 02:36 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 192 | 2025-06-14 08:27 | 2025-06-14 08:27 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 193 | 2025-06-14 11:33 | 2025-06-14 11:33 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 194 | 2025-06-15 23:13 | 2025-06-15 23:13 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 195 | 2025-06-16 10:50 | 2025-06-20 21:09 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 196 | 2025-06-21 05:50 | 2025-06-21 05:50 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 197 | 2025-06-21 14:16 | 2025-06-21 14:16 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 198 | 2025-06-24 20:30 | 2025-06-24 20:30 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 199 | 2025-06-25 16:05 | 2025-06-25 16:05 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 200 | 2025-06-27 08:38 | 2025-06-27 08:38 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 201 | 2025-06-27 14:57 | 2025-06-27 14:57 | suspicious | 19 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 202 | 2025-06-28 19:33 | 2025-06-28 19:33 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 203 | 2025-06-29 20:12 | 2025-06-29 20:12 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 204 | 2025-07-03 03:26 | 2025-07-03 03:26 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 205 | 2025-07-03 20:37 | 2025-07-07 09:46 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 206 | 2025-07-08 05:46 | 2025-07-08 05:46 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 207 | 2025-07-08 08:53 | 2025-07-08 08:53 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 208 | 2025-07-09 00:57 | 2025-07-09 00:57 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 209 | 2025-07-10 01:08 | 2025-07-10 01:08 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 210 | 2025-07-11 13:52 | 2025-07-11 13:52 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 211 | 2025-07-11 16:06 | 2025-07-11 16:06 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 212 | 2025-07-12 04:18 | 2025-07-15 05:31 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 213 | 2025-07-19 12:51 | 2025-07-19 12:51 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 214 | 2025-07-21 18:59 | 2025-07-21 18:59 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 215 | 2025-07-23 13:24 | 2025-07-26 03:29 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 216 | 2025-07-26 09:56 | 2025-07-26 09:56 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 217 | 2025-07-29 12:07 | 2025-07-29 12:07 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 218 | 2025-07-29 18:03 | 2025-08-02 05:32 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 219 | 2025-08-05 23:16 | 2025-08-05 23:16 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 220 | 2025-08-06 08:50 | 2025-08-06 08:50 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 221 | 2025-08-07 09:53 | 2025-08-07 09:53 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 222 | 2025-08-10 19:37 | 2025-08-10 19:37 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 223 | 2025-08-14 14:03 | 2025-08-14 14:03 | suspicious | 18 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 224 | 2025-08-14 18:37 | 2025-08-14 18:37 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 225 | 2025-08-19 20:38 | 2025-08-19 20:38 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 226 | 2025-08-21 06:48 | 2025-08-21 06:48 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 227 | 2025-08-24 01:05 | 2025-08-28 22:15 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 228 | 2025-08-29 07:15 | 2025-08-29 07:15 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 229 | 2025-08-29 14:27 | 2025-08-29 14:27 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 230 | 2025-08-29 23:03 | 2025-08-29 23:03 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 231 | 2025-08-30 19:20 | 2025-08-30 19:20 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 232 | 2025-09-01 16:34 | 2025-09-01 16:34 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 233 | 2025-09-01 19:33 | 2025-09-01 19:33 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 234 | 2025-09-02 18:38 | 2025-09-04 23:15 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 235 | 2025-09-05 12:21 | 2025-09-05 12:21 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 236 | 2025-09-05 16:49 | 2025-09-05 16:49 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 237 | 2025-09-06 18:05 | 2025-09-06 18:05 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 238 | 2025-09-07 21:19 | 2025-09-10 07:35 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 239 | 2025-09-11 08:41 | 2025-09-11 08:41 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 240 | 2025-09-11 23:30 | 2025-09-11 23:30 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 241 | 2025-09-15 03:50 | 2025-09-15 03:50 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 242 | 2025-09-16 05:17 | 2025-09-16 05:17 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 243 | 2025-09-16 15:13 | 2025-09-19 04:55 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 244 | 2025-09-22 01:11 | 2025-09-22 01:11 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 245 | 2025-09-22 16:23 | 2025-09-27 15:27 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 246 | 2025-09-28 11:00 | 2025-09-28 11:00 | suspicious | 32 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 247 | 2025-09-30 08:50 | 2025-10-03 07:48 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 248 | 2025-10-04 10:46 | 2025-10-04 10:46 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 249 | 2025-10-04 23:45 | 2025-10-04 23:45 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 250 | 2025-10-05 22:38 | 2025-10-05 22:38 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 251 | 2025-10-09 08:28 | 2025-10-09 08:28 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 252 | 2025-10-09 19:13 | 2025-10-09 19:13 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 253 | 2025-10-11 17:37 | 2025-10-14 19:38 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 254 | 2025-10-15 13:26 | 2025-10-15 13:26 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 255 | 2025-10-16 00:44 | 2025-10-16 00:44 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 256 | 2025-10-17 17:35 | 2025-10-17 17:35 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 257 | 2025-10-17 21:45 | 2025-10-17 21:45 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 258 | 2025-10-18 08:26 | 2025-10-21 21:48 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 259 | 2025-10-25 16:14 | 2025-10-25 16:14 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 260 | 2025-10-25 16:29 | 2025-10-25 16:29 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 261 | 2025-10-26 18:29 | 2025-10-29 03:27 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 262 | 2025-10-30 18:43 | 2025-10-30 18:43 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 263 | 2025-10-31 01:53 | 2025-10-31 01:53 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 264 | 2025-10-31 09:34 | 2025-11-02 10:46 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 265 | 2025-11-05 15:56 | 2025-11-05 15:56 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 266 | 2025-11-06 00:15 | 2025-11-06 00:15 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 267 | 2025-11-06 07:27 | 2025-11-06 07:27 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 268 | 2025-11-07 12:10 | 2025-11-10 08:18 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 269 | 2025-11-12 20:34 | 2025-11-12 20:34 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 270 | 2025-11-12 22:35 | 2025-11-12 22:35 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 271 | 2025-11-17 14:35 | 2025-11-21 00:46 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 272 | 2025-11-21 09:19 | 2025-11-21 09:19 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 273 | 2025-11-21 18:49 | 2025-11-21 18:49 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 274 | 2025-11-23 12:02 | 2025-11-25 15:21 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 275 | 2025-11-26 06:30 | 2025-11-26 06:30 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 276 | 2025-11-26 17:39 | 2025-11-26 17:39 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 277 | 2025-11-27 05:06 | 2025-11-27 05:06 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 278 | 2025-12-02 07:15 | 2025-12-06 15:53 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 279 | 2025-12-07 03:45 | 2025-12-07 03:45 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 280 | 2025-12-08 03:08 | 2025-12-08 03:08 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 281 | 2025-12-09 07:46 | 2025-12-13 21:46 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 282 | 2025-12-16 00:42 | 2025-12-16 00:42 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 283 | 2025-12-16 07:06 | 2025-12-16 07:06 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 284 | 2025-12-16 16:46 | 2025-12-16 16:46 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 285 | 2025-12-21 05:58 | 2025-12-21 05:58 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 286 | 2025-12-21 13:32 | 2025-12-21 13:32 | suspicious | 19 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 287 | 2025-12-22 05:13 | 2025-12-22 05:13 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 288 | 2025-12-23 05:53 | 2025-12-23 05:53 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 289 | 2025-12-23 20:24 | 2025-12-27 02:08 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 290 | 2025-12-31 09:00 | 2025-12-31 09:00 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 291 | 2026-01-01 06:35 | 2026-01-01 06:35 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 292 | 2026-01-02 01:04 | 2026-01-02 01:04 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 293 | 2026-01-02 18:28 | 2026-01-02 18:28 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 294 | 2026-01-02 23:13 | 2026-01-02 23:13 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 295 | 2026-01-03 06:01 | 2026-01-03 06:01 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 296 | 2026-01-05 07:59 | 2026-01-05 07:59 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 297 | 2026-01-05 12:35 | 2026-01-05 12:35 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 298 | 2026-01-06 14:55 | 2026-01-08 17:21 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 299 | 2026-01-10 14:53 | 2026-01-10 14:53 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 300 | 2026-01-11 23:20 | 2026-01-11 23:20 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 301 | 2026-01-12 01:03 | 2026-01-12 01:03 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 302 | 2026-01-12 07:24 | 2026-01-12 07:24 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 303 | 2026-01-12 11:12 | 2026-01-12 11:12 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 304 | 2026-01-14 07:50 | 2026-01-14 07:50 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 305 | 2026-01-14 20:44 | 2026-01-14 20:44 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 306 | 2026-01-17 04:49 | 2026-01-17 04:49 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 307 | 2026-01-17 11:35 | 2026-01-17 11:35 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 308 | 2026-01-18 14:19 | 2026-01-18 14:19 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 309 | 2026-01-18 18:34 | 2026-01-18 18:34 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 310 | 2026-01-18 18:42 | 2026-01-18 18:42 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 311 | 2026-01-22 23:34 | 2026-01-22 23:34 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 312 | 2026-01-24 17:25 | 2026-01-27 15:38 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 313 | 2026-01-27 21:58 | 2026-01-27 21:58 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 314 | 2026-01-28 02:22 | 2026-01-28 02:22 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 315 | 2026-01-29 01:46 | 2026-01-29 01:46 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 316 | 2026-01-29 21:34 | 2026-01-29 21:34 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 317 | 2026-01-30 21:33 | 2026-02-04 11:05 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 318 | 2026-02-06 13:13 | 2026-02-06 13:13 | suspicious | 29 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 319 | 2026-02-07 17:40 | 2026-02-07 17:40 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 320 | 2026-02-12 23:31 | 2026-02-12 23:31 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 321 | 2026-02-13 23:15 | 2026-02-13 23:15 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 322 | 2026-02-14 12:42 | 2026-02-14 12:42 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 323 | 2026-02-15 18:27 | 2026-02-15 18:27 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 324 | 2026-02-15 21:37 | 2026-02-18 03:42 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 325 | 2026-02-20 04:33 | 2026-02-23 19:48 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 326 | 2026-02-25 13:37 | 2026-02-25 13:37 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 327 | 2026-02-26 01:41 | 2026-02-26 01:41 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 328 | 2026-03-01 05:04 | 2026-03-01 05:04 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 329 | 2026-03-04 07:29 | 2026-03-08 20:33 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 330 | 2026-03-10 07:44 | 2026-03-10 07:44 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 331 | 2026-03-11 00:43 | 2026-03-11 00:43 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 332 | 2026-03-11 01:37 | 2026-03-11 01:37 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 333 | 2026-03-12 23:20 | 2026-03-12 23:20 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 334 | 2026-03-13 19:39 | 2026-03-13 19:39 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 335 | 2026-03-13 22:35 | 2026-03-13 22:35 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 336 | 2026-03-14 14:49 | 2026-03-14 14:49 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 337 | 2026-03-15 18:20 | 2026-03-15 18:20 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 338 | 2026-03-19 11:30 | 2026-03-22 05:10 | down_or_crashing | 28 | 28 | traffic/error/suspicious-request spike inferred from log metrics |
-| 339 | 2026-03-24 16:01 | 2026-03-24 16:01 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 340 | 2026-03-26 14:24 | 2026-03-29 00:05 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 341 | 2026-03-29 18:32 | 2026-03-29 18:32 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 342 | 2026-03-29 19:31 | 2026-03-29 19:31 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 343 | 2026-03-31 17:37 | 2026-03-31 17:37 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 344 | 2026-03-31 18:18 | 2026-03-31 18:18 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 345 | 2026-03-31 22:09 | 2026-03-31 22:09 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 346 | 2026-04-01 00:35 | 2026-04-01 00:35 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 347 | 2026-04-02 04:21 | 2026-04-02 04:21 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 348 | 2026-04-02 12:53 | 2026-04-05 06:11 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 349 | 2026-04-05 06:27 | 2026-04-05 06:27 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 350 | 2026-04-05 11:46 | 2026-04-05 11:46 | suspicious | 28 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 351 | 2026-04-05 16:13 | 2026-04-05 16:13 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 352 | 2026-04-07 08:28 | 2026-04-07 08:28 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 353 | 2026-04-07 10:22 | 2026-04-10 08:58 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 354 | 2026-04-13 03:02 | 2026-04-13 03:02 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 355 | 2026-04-13 09:28 | 2026-04-13 09:28 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 356 | 2026-04-15 11:58 | 2026-04-15 11:58 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 357 | 2026-04-16 02:43 | 2026-04-16 02:43 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 358 | 2026-04-16 08:34 | 2026-04-16 08:34 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 359 | 2026-04-21 08:58 | 2026-04-21 08:58 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 360 | 2026-04-23 00:38 | 2026-04-23 00:38 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 361 | 2026-04-24 22:35 | 2026-04-24 22:35 | suspicious | 25 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 362 | 2026-04-25 15:29 | 2026-04-25 15:29 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 363 | 2026-04-28 04:20 | 2026-05-02 20:43 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 364 | 2026-05-06 09:29 | 2026-05-08 22:08 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
-| 365 | 2026-05-08 23:39 | 2026-05-08 23:39 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 366 | 2026-05-10 16:39 | 2026-05-10 16:39 | suspicious | 23 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 367 | 2026-05-10 17:58 | 2026-05-10 17:58 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 368 | 2026-05-11 02:10 | 2026-05-11 02:10 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 369 | 2026-05-11 10:28 | 2026-05-11 10:28 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 370 | 2026-05-12 00:35 | 2026-05-12 00:35 | suspicious | 19 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 371 | 2026-05-12 12:57 | 2026-05-12 12:57 | suspicious | 22 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 372 | 2026-05-14 07:59 | 2026-05-14 07:59 | suspicious | 31 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 373 | 2026-05-17 03:27 | 2026-05-17 03:27 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 374 | 2026-05-17 17:28 | 2026-05-17 17:28 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 375 | 2026-05-17 23:18 | 2026-05-17 23:18 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 376 | 2026-05-18 18:03 | 2026-05-18 18:03 | suspicious | 21 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 377 | 2026-05-18 23:04 | 2026-05-18 23:04 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 378 | 2026-05-23 21:13 | 2026-05-27 23:49 | down_or_crashing | 25 | 25 | traffic/error/suspicious-request spike inferred from log metrics |
-| 379 | 2026-05-30 13:12 | 2026-05-30 13:12 | suspicious | 27 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 380 | 2026-05-30 14:33 | 2026-06-01 21:33 | down_or_crashing | 27 | 27 | traffic/error/suspicious-request spike inferred from log metrics |
-| 381 | 2026-06-02 08:44 | 2026-06-02 08:44 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 382 | 2026-06-07 11:15 | 2026-06-07 11:15 | suspicious | 20 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 383 | 2026-06-08 11:45 | 2026-06-08 11:45 | suspicious | 24 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 384 | 2026-06-08 13:19 | 2026-06-08 13:19 | suspicious | 26 | 0 | traffic/error/suspicious-request spike inferred from log metrics |
-| 385 | 2026-06-08 20:14 | 2026-06-10 04:17 | down_or_crashing | 26 | 26 | traffic/error/suspicious-request spike inferred from log metrics |
+| Window | Start | End | States | Peak Req/min | Peak 5xx/min | Peak p95 latency ms | Reason |
+|---:|---|---|---|---:|---:|---:|---|
+| 1 | 2024-06-13 08:17 | 2024-06-13 08:17 | suspicious | 32 | 0 | 248 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 2 | 2024-06-13 10:00 | 2024-06-13 11:59 | slow_or_unstable | 27 | 0 | 7955 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 3 | 2024-06-13 13:00 | 2024-06-13 15:59 | slow_or_unstable | 27 | 0 | 7955 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 4 | 2024-06-14 07:56 | 2024-06-14 07:56 | suspicious | 23 | 0 | 247 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 5 | 2024-06-14 20:34 | 2024-06-14 20:34 | suspicious | 26 | 0 | 216 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 6 | 2024-06-16 00:59 | 2024-06-16 00:59 | suspicious | 21 | 0 | 230 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 7 | 2024-06-16 10:25 | 2024-06-21 08:49 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 8 | 2024-06-23 11:31 | 2024-06-23 11:31 | suspicious | 24 | 0 | 248 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 9 | 2024-06-24 10:00 | 2024-06-24 11:59 | slow_or_unstable | 30 | 0 | 7996 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 10 | 2024-06-24 13:00 | 2024-06-24 15:59 | slow_or_unstable | 29 | 0 | 8000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 11 | 2024-06-25 09:58 | 2024-06-25 09:58 | suspicious | 26 | 0 | 226 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 12 | 2024-06-25 10:00 | 2024-06-25 11:59 | slow_or_unstable | 29 | 0 | 7888 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 13 | 2024-06-25 13:00 | 2024-06-25 15:59 | slow_or_unstable | 27 | 0 | 7968 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 14 | 2024-06-25 17:30 | 2024-06-29 15:59 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 15 | 2024-06-29 17:17 | 2024-06-29 17:17 | suspicious | 24 | 0 | 131 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 16 | 2024-07-02 10:00 | 2024-07-02 11:59 | slow_or_unstable | 27 | 0 | 7962 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 17 | 2024-07-02 13:00 | 2024-07-02 15:59 | slow_or_unstable | 31 | 0 | 7961 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 18 | 2024-07-03 16:51 | 2024-07-03 16:51 | suspicious | 26 | 0 | 237 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 19 | 2024-07-04 10:00 | 2024-07-04 11:59 | slow_or_unstable | 27 | 0 | 7963 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 20 | 2024-07-04 13:00 | 2024-07-04 15:59 | slow_or_unstable | 28 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 21 | 2024-07-05 11:02 | 2024-07-08 05:25 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 22 | 2024-07-10 13:32 | 2024-07-10 13:32 | suspicious | 25 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 23 | 2024-07-10 15:20 | 2024-07-10 15:20 | suspicious | 23 | 0 | 132 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 24 | 2024-07-12 05:51 | 2024-07-12 05:51 | suspicious | 26 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 25 | 2024-07-12 09:53 | 2024-07-12 09:53 | suspicious | 27 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 26 | 2024-07-14 04:00 | 2024-07-14 04:00 | suspicious | 22 | 0 | 172 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 27 | 2024-07-14 09:01 | 2024-07-14 09:01 | suspicious | 23 | 0 | 236 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 28 | 2024-07-15 10:00 | 2024-07-15 11:59 | slow_or_unstable | 26 | 0 | 7986 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 29 | 2024-07-15 13:00 | 2024-07-15 15:59 | slow_or_unstable | 27 | 0 | 7991 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 30 | 2024-07-16 10:00 | 2024-07-16 11:59 | slow_or_unstable | 27 | 0 | 7930 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 31 | 2024-07-16 13:00 | 2024-07-16 15:59 | slow_or_unstable | 29 | 0 | 7960 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 32 | 2024-07-17 04:04 | 2024-07-19 09:30 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 33 | 2024-07-19 20:45 | 2024-07-19 20:45 | suspicious | 25 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 34 | 2024-07-20 04:39 | 2024-07-20 04:39 | suspicious | 25 | 0 | 235 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 35 | 2024-07-20 13:28 | 2024-07-20 13:28 | suspicious | 25 | 0 | 246 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 36 | 2024-07-21 13:24 | 2024-07-21 13:24 | suspicious | 17 | 0 | 225 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 37 | 2024-07-22 10:00 | 2024-07-22 11:11 | slow_or_unstable | 26 | 0 | 7951 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 38 | 2024-07-22 11:13 | 2024-07-22 11:59 | slow_or_unstable | 27 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 39 | 2024-07-22 13:00 | 2024-07-22 15:59 | slow_or_unstable | 29 | 0 | 7954 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 40 | 2024-07-23 10:00 | 2024-07-23 11:59 | slow_or_unstable | 28 | 0 | 7942 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 41 | 2024-07-23 13:00 | 2024-07-23 15:59 | slow_or_unstable | 29 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 42 | 2024-07-24 02:02 | 2024-07-28 03:43 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 43 | 2024-07-30 18:57 | 2024-08-03 00:20 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 44 | 2024-08-03 08:10 | 2024-08-03 08:10 | suspicious | 20 | 0 | 130 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 45 | 2024-08-04 09:57 | 2024-08-04 09:57 | suspicious | 23 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 46 | 2024-08-06 10:00 | 2024-08-06 11:59 | slow_or_unstable | 29 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 47 | 2024-08-06 13:00 | 2024-08-06 15:59 | slow_or_unstable | 27 | 0 | 7980 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 48 | 2024-08-08 10:00 | 2024-08-08 11:57 | slow_or_unstable | 27 | 0 | 7968 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 49 | 2024-08-08 11:59 | 2024-08-08 11:59 | slow_or_unstable | 20 | 0 | 6846 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 50 | 2024-08-08 13:00 | 2024-08-08 15:59 | slow_or_unstable | 29 | 0 | 7982 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 51 | 2024-08-10 11:42 | 2024-08-12 12:34 | down_or_crashing | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 52 | 2024-08-12 13:00 | 2024-08-12 15:59 | slow_or_unstable | 28 | 0 | 7996 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 53 | 2024-08-12 17:16 | 2024-08-12 17:16 | suspicious | 26 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 54 | 2024-08-13 10:00 | 2024-08-13 11:59 | slow_or_unstable | 29 | 0 | 7975 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 55 | 2024-08-13 13:00 | 2024-08-13 14:14 | slow_or_unstable | 29 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 56 | 2024-08-13 14:16 | 2024-08-13 15:59 | slow_or_unstable | 28 | 0 | 7997 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 57 | 2024-08-15 10:00 | 2024-08-15 11:59 | slow_or_unstable | 31 | 0 | 7992 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 58 | 2024-08-15 13:00 | 2024-08-15 15:59 | slow_or_unstable | 29 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 59 | 2024-08-16 09:33 | 2024-08-16 09:33 | suspicious | 28 | 0 | 195 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 60 | 2024-08-16 18:16 | 2024-08-16 18:16 | suspicious | 26 | 0 | 239 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 61 | 2024-08-16 22:57 | 2024-08-21 04:19 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 62 | 2024-08-21 09:32 | 2024-08-21 09:32 | suspicious | 21 | 0 | 205 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 63 | 2024-08-21 11:45 | 2024-08-21 11:45 | suspicious | 24 | 0 | 245 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 64 | 2024-08-22 04:27 | 2024-08-22 04:27 | suspicious | 20 | 0 | 243 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 65 | 2024-08-22 10:00 | 2024-08-22 11:59 | slow_or_unstable | 28 | 0 | 7977 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 66 | 2024-08-22 13:00 | 2024-08-22 15:59 | slow_or_unstable | 28 | 0 | 7978 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 67 | 2024-08-23 13:12 | 2024-08-23 13:12 | suspicious | 25 | 0 | 247 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 68 | 2024-08-23 20:39 | 2024-08-23 20:39 | suspicious | 23 | 0 | 223 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 69 | 2024-08-24 21:25 | 2024-08-24 21:25 | suspicious | 23 | 0 | 228 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 70 | 2024-08-25 09:48 | 2024-08-25 09:48 | suspicious | 27 | 0 | 218 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 71 | 2024-08-25 20:41 | 2024-08-25 20:41 | suspicious | 25 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 72 | 2024-08-27 09:56 | 2024-08-27 09:56 | suspicious | 28 | 0 | 139 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 73 | 2024-08-27 13:00 | 2024-08-27 15:59 | slow_or_unstable | 32 | 0 | 7992 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 74 | 2024-08-27 19:54 | 2024-08-27 19:54 | suspicious | 26 | 0 | 230 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 75 | 2024-08-27 23:07 | 2024-08-27 23:07 | suspicious | 24 | 0 | 237 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 76 | 2024-08-28 06:00 | 2024-08-28 06:00 | suspicious | 27 | 0 | 230 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 77 | 2024-08-29 10:00 | 2024-08-29 11:59 | slow_or_unstable | 29 | 0 | 7988 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 78 | 2024-08-29 13:00 | 2024-08-29 15:59 | slow_or_unstable | 27 | 0 | 7957 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 79 | 2024-08-29 16:39 | 2024-09-01 19:18 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 80 | 2024-09-02 10:00 | 2024-09-02 11:59 | slow_or_unstable | 28 | 0 | 8000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 81 | 2024-09-02 13:00 | 2024-09-02 15:59 | slow_or_unstable | 28 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 82 | 2024-09-03 10:00 | 2024-09-03 11:59 | slow_or_unstable | 29 | 0 | 7972 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 83 | 2024-09-03 13:00 | 2024-09-03 15:59 | slow_or_unstable | 28 | 0 | 7982 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 84 | 2024-09-05 10:00 | 2024-09-05 11:59 | slow_or_unstable | 30 | 0 | 7949 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 85 | 2024-09-05 13:00 | 2024-09-05 15:59 | slow_or_unstable | 28 | 0 | 8000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 86 | 2024-09-05 18:57 | 2024-09-05 18:57 | suspicious | 26 | 0 | 215 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 87 | 2024-09-06 18:39 | 2024-09-06 18:39 | suspicious | 23 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 88 | 2024-09-07 06:55 | 2024-09-07 06:55 | suspicious | 26 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 89 | 2024-09-07 11:52 | 2024-09-07 11:52 | suspicious | 24 | 0 | 125 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 90 | 2024-09-08 16:53 | 2024-09-12 18:39 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 91 | 2024-09-13 17:55 | 2024-09-13 17:55 | suspicious | 23 | 0 | 136 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 92 | 2024-09-13 19:32 | 2024-09-13 19:32 | suspicious | 28 | 0 | 143 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 93 | 2024-09-15 12:14 | 2024-09-15 12:14 | suspicious | 26 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 94 | 2024-09-17 10:00 | 2024-09-17 11:59 | slow_or_unstable | 28 | 0 | 7989 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 95 | 2024-09-17 13:00 | 2024-09-17 15:59 | slow_or_unstable | 28 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 96 | 2024-09-19 10:00 | 2024-09-19 11:59 | slow_or_unstable | 29 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 97 | 2024-09-19 13:00 | 2024-09-19 15:59 | slow_or_unstable | 29 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 98 | 2024-09-19 23:07 | 2024-09-19 23:07 | suspicious | 26 | 0 | 238 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 99 | 2024-09-20 13:16 | 2024-09-20 13:16 | suspicious | 22 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 100 | 2024-09-21 10:53 | 2024-09-21 10:53 | suspicious | 27 | 0 | 190 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 101 | 2024-09-21 14:37 | 2024-09-24 04:42 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 102 | 2024-09-24 10:00 | 2024-09-24 11:59 | slow_or_unstable | 27 | 0 | 7960 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 103 | 2024-09-24 13:00 | 2024-09-24 15:59 | slow_or_unstable | 30 | 0 | 7977 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 104 | 2024-09-26 10:00 | 2024-09-26 11:59 | slow_or_unstable | 30 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 105 | 2024-09-26 13:00 | 2024-09-26 15:59 | slow_or_unstable | 28 | 0 | 7987 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 106 | 2024-09-28 18:34 | 2024-09-28 18:34 | suspicious | 26 | 0 | 136 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 107 | 2024-09-29 12:44 | 2024-09-29 12:44 | suspicious | 21 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 108 | 2024-09-29 19:31 | 2024-09-29 19:31 | suspicious | 29 | 0 | 135 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 109 | 2024-10-01 08:44 | 2024-10-01 08:44 | suspicious | 24 | 0 | 136 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 110 | 2024-10-01 16:08 | 2024-10-01 16:08 | suspicious | 22 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 111 | 2024-10-03 10:00 | 2024-10-03 11:59 | slow_or_unstable | 27 | 0 | 7982 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 112 | 2024-10-03 13:00 | 2024-10-03 15:27 | slow_or_unstable | 29 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 113 | 2024-10-03 15:29 | 2024-10-03 15:59 | slow_or_unstable | 26 | 0 | 7945 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 114 | 2024-10-05 18:20 | 2024-10-05 18:20 | suspicious | 21 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 115 | 2024-10-10 10:00 | 2024-10-10 11:59 | slow_or_unstable | 28 | 0 | 7983 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 116 | 2024-10-10 13:00 | 2024-10-10 13:53 | slow_or_unstable | 29 | 0 | 7972 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 117 | 2024-10-10 13:55 | 2024-10-10 15:59 | slow_or_unstable | 30 | 0 | 7946 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 118 | 2024-10-12 01:01 | 2024-10-12 01:01 | suspicious | 26 | 0 | 222 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 119 | 2024-10-13 03:46 | 2024-10-13 03:46 | suspicious | 22 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 120 | 2024-10-14 12:50 | 2024-10-14 12:50 | suspicious | 23 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 121 | 2024-10-15 17:33 | 2024-10-15 17:33 | suspicious | 24 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 122 | 2024-10-15 21:21 | 2024-10-15 21:21 | suspicious | 24 | 0 | 136 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 123 | 2024-10-19 07:46 | 2024-10-19 07:46 | suspicious | 24 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 124 | 2024-10-21 01:22 | 2024-10-21 01:22 | suspicious | 26 | 0 | 228 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 125 | 2024-10-21 01:47 | 2024-10-21 01:47 | suspicious | 29 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 126 | 2024-10-21 07:39 | 2024-10-23 11:47 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 127 | 2024-10-24 12:34 | 2024-10-24 12:34 | suspicious | 25 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 128 | 2024-10-24 23:04 | 2024-10-24 23:04 | suspicious | 25 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 129 | 2024-10-25 05:04 | 2024-10-25 05:04 | suspicious | 25 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 130 | 2024-10-27 15:28 | 2024-10-31 11:57 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 131 | 2024-11-01 05:08 | 2024-11-01 05:08 | suspicious | 21 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 132 | 2024-11-01 10:05 | 2024-11-01 10:05 | suspicious | 22 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 133 | 2024-11-03 03:52 | 2024-11-07 18:52 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 134 | 2024-11-07 21:49 | 2024-11-07 21:49 | suspicious | 25 | 0 | 222 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 135 | 2024-11-11 04:28 | 2024-11-15 00:39 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 136 | 2024-11-17 13:07 | 2024-11-17 13:07 | suspicious | 26 | 0 | 136 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 137 | 2024-11-21 07:59 | 2024-11-21 07:59 | suspicious | 32 | 0 | 234 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 138 | 2024-11-21 09:58 | 2024-11-21 09:58 | suspicious | 24 | 0 | 247 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 139 | 2024-11-21 10:00 | 2024-11-21 11:59 | slow_or_unstable | 28 | 0 | 7997 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 140 | 2024-11-21 13:00 | 2024-11-21 15:59 | slow_or_unstable | 27 | 0 | 7961 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 141 | 2024-11-21 16:07 | 2024-11-21 16:07 | suspicious | 26 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 142 | 2024-11-22 14:32 | 2024-11-26 00:45 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 143 | 2024-11-26 07:01 | 2024-11-26 07:01 | suspicious | 27 | 0 | 248 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 144 | 2024-11-26 10:00 | 2024-11-26 11:59 | slow_or_unstable | 28 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 145 | 2024-11-26 13:00 | 2024-11-26 15:59 | slow_or_unstable | 29 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 146 | 2024-11-28 10:00 | 2024-11-28 11:59 | slow_or_unstable | 29 | 0 | 7938 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 147 | 2024-11-28 12:21 | 2024-11-28 12:21 | suspicious | 22 | 0 | 236 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 148 | 2024-11-28 13:00 | 2024-11-28 14:53 | slow_or_unstable | 26 | 0 | 7969 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 149 | 2024-11-28 14:55 | 2024-11-28 15:59 | slow_or_unstable | 28 | 0 | 7980 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 150 | 2024-11-29 16:21 | 2024-11-29 16:21 | suspicious | 22 | 0 | 214 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 151 | 2024-12-03 15:45 | 2024-12-03 15:59 | slow_or_unstable | 26 | 0 | 7910 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 152 | 2024-12-04 09:43 | 2024-12-04 09:43 | suspicious | 23 | 0 | 206 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 153 | 2024-12-05 10:00 | 2024-12-05 11:59 | slow_or_unstable | 30 | 0 | 7964 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 154 | 2024-12-05 13:00 | 2024-12-05 15:59 | slow_or_unstable | 30 | 0 | 7936 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 155 | 2024-12-07 12:50 | 2024-12-07 12:50 | suspicious | 23 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 156 | 2024-12-07 16:50 | 2024-12-07 16:50 | suspicious | 26 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 157 | 2024-12-07 18:06 | 2024-12-07 18:06 | suspicious | 18 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 158 | 2024-12-08 22:55 | 2024-12-08 22:55 | suspicious | 24 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 159 | 2024-12-12 10:00 | 2024-12-12 11:59 | slow_or_unstable | 30 | 0 | 7966 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 160 | 2024-12-12 13:00 | 2024-12-12 14:52 | slow_or_unstable | 28 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 161 | 2024-12-12 14:54 | 2024-12-12 15:59 | slow_or_unstable | 26 | 0 | 7859 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 162 | 2024-12-14 13:08 | 2024-12-14 13:08 | suspicious | 27 | 0 | 226 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 163 | 2024-12-14 22:40 | 2024-12-14 22:40 | suspicious | 23 | 0 | 237 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 164 | 2024-12-15 08:39 | 2024-12-15 08:39 | suspicious | 22 | 0 | 239 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 165 | 2024-12-17 14:10 | 2024-12-17 14:10 | suspicious | 23 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 166 | 2024-12-18 03:49 | 2024-12-18 03:49 | suspicious | 23 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 167 | 2024-12-19 02:20 | 2024-12-19 02:20 | suspicious | 26 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 168 | 2024-12-19 04:02 | 2024-12-23 12:06 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 169 | 2024-12-23 18:47 | 2024-12-23 18:47 | suspicious | 24 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 170 | 2024-12-24 05:01 | 2024-12-24 05:01 | suspicious | 23 | 0 | 129 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 171 | 2024-12-24 17:33 | 2024-12-24 17:33 | suspicious | 21 | 0 | 136 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 172 | 2024-12-26 05:09 | 2024-12-28 06:49 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 173 | 2024-12-29 02:33 | 2024-12-29 02:33 | suspicious | 29 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 174 | 2024-12-30 10:00 | 2024-12-30 11:59 | slow_or_unstable | 29 | 0 | 7972 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 175 | 2024-12-30 13:00 | 2024-12-30 13:04 | slow_or_unstable | 28 | 0 | 7752 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 176 | 2024-12-30 13:06 | 2024-12-30 15:59 | slow_or_unstable | 29 | 0 | 7967 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 177 | 2024-12-31 00:51 | 2025-01-04 07:15 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 178 | 2025-01-05 13:26 | 2025-01-05 13:26 | suspicious | 22 | 0 | 222 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 179 | 2025-01-05 13:29 | 2025-01-05 13:29 | suspicious | 27 | 0 | 224 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 180 | 2025-01-06 10:00 | 2025-01-06 11:59 | slow_or_unstable | 29 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 181 | 2025-01-06 12:45 | 2025-01-06 12:45 | suspicious | 23 | 0 | 210 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 182 | 2025-01-06 13:00 | 2025-01-06 15:59 | slow_or_unstable | 27 | 0 | 7983 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 183 | 2025-01-06 18:31 | 2025-01-11 04:49 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 184 | 2025-01-11 19:49 | 2025-01-11 19:49 | suspicious | 22 | 0 | 223 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 185 | 2025-01-13 10:00 | 2025-01-13 11:59 | slow_or_unstable | 27 | 0 | 7909 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 186 | 2025-01-13 13:00 | 2025-01-13 15:59 | slow_or_unstable | 28 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 187 | 2025-01-13 19:21 | 2025-01-13 19:21 | suspicious | 22 | 0 | 190 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 188 | 2025-01-14 10:00 | 2025-01-14 11:59 | slow_or_unstable | 29 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 189 | 2025-01-14 13:00 | 2025-01-14 15:59 | slow_or_unstable | 27 | 0 | 7986 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 190 | 2025-01-15 03:39 | 2025-01-20 02:40 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 191 | 2025-01-21 10:04 | 2025-01-21 10:04 | suspicious | 26 | 0 | 142 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 192 | 2025-01-22 19:06 | 2025-01-25 15:49 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 193 | 2025-01-26 18:59 | 2025-01-26 18:59 | suspicious | 24 | 0 | 223 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 194 | 2025-01-26 23:38 | 2025-01-26 23:38 | suspicious | 24 | 0 | 240 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 195 | 2025-01-27 10:00 | 2025-01-27 11:59 | slow_or_unstable | 29 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 196 | 2025-01-27 13:00 | 2025-01-27 15:59 | slow_or_unstable | 30 | 0 | 7944 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 197 | 2025-01-28 10:00 | 2025-01-28 11:59 | slow_or_unstable | 27 | 0 | 7972 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 198 | 2025-01-28 13:00 | 2025-01-28 15:59 | slow_or_unstable | 27 | 0 | 7976 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 199 | 2025-01-28 18:04 | 2025-01-28 18:04 | suspicious | 23 | 0 | 207 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 200 | 2025-01-28 20:42 | 2025-02-01 03:51 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 201 | 2025-02-03 22:01 | 2025-02-03 22:01 | suspicious | 25 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 202 | 2025-02-06 03:38 | 2025-02-06 03:38 | suspicious | 25 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 203 | 2025-02-06 10:00 | 2025-02-06 11:59 | slow_or_unstable | 30 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 204 | 2025-02-06 13:00 | 2025-02-06 15:59 | slow_or_unstable | 30 | 0 | 7995 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 205 | 2025-02-06 22:47 | 2025-02-06 22:47 | suspicious | 26 | 0 | 226 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 206 | 2025-02-10 07:39 | 2025-02-10 07:39 | suspicious | 22 | 0 | 134 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 207 | 2025-02-13 10:00 | 2025-02-13 11:59 | slow_or_unstable | 29 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 208 | 2025-02-13 13:00 | 2025-02-13 15:59 | slow_or_unstable | 29 | 0 | 7989 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 209 | 2025-02-15 17:07 | 2025-02-15 17:07 | suspicious | 23 | 0 | 221 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 210 | 2025-02-16 06:38 | 2025-02-16 06:38 | suspicious | 23 | 0 | 149 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 211 | 2025-02-16 14:54 | 2025-02-16 14:54 | suspicious | 23 | 0 | 139 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 212 | 2025-02-17 17:33 | 2025-02-17 17:33 | suspicious | 26 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 213 | 2025-02-18 20:36 | 2025-02-18 20:36 | suspicious | 24 | 0 | 132 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 214 | 2025-02-19 17:02 | 2025-02-19 17:02 | suspicious | 25 | 0 | 225 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 215 | 2025-02-20 00:54 | 2025-02-20 00:54 | suspicious | 25 | 0 | 231 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 216 | 2025-02-20 10:00 | 2025-02-20 11:59 | slow_or_unstable | 28 | 0 | 7893 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 217 | 2025-02-20 13:00 | 2025-02-20 15:59 | slow_or_unstable | 28 | 0 | 7983 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 218 | 2025-02-20 16:03 | 2025-02-20 16:03 | suspicious | 27 | 0 | 247 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 219 | 2025-02-22 18:29 | 2025-02-22 18:29 | suspicious | 23 | 0 | 221 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 220 | 2025-02-25 09:15 | 2025-02-25 09:15 | suspicious | 20 | 0 | 135 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 221 | 2025-02-25 13:55 | 2025-02-25 13:55 | suspicious | 21 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 222 | 2025-02-25 15:59 | 2025-02-25 15:59 | suspicious | 25 | 0 | 142 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 223 | 2025-02-26 12:38 | 2025-02-26 12:38 | suspicious | 22 | 0 | 134 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 224 | 2025-02-27 23:55 | 2025-03-03 21:00 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 225 | 2025-03-06 03:43 | 2025-03-06 03:43 | suspicious | 23 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 226 | 2025-03-06 12:40 | 2025-03-09 00:30 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 227 | 2025-03-10 10:00 | 2025-03-10 11:59 | slow_or_unstable | 27 | 0 | 7942 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 228 | 2025-03-10 13:00 | 2025-03-10 13:19 | slow_or_unstable | 28 | 0 | 7741 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 229 | 2025-03-10 13:21 | 2025-03-10 15:59 | slow_or_unstable | 29 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 230 | 2025-03-11 10:00 | 2025-03-11 11:59 | slow_or_unstable | 27 | 0 | 7965 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 231 | 2025-03-11 13:00 | 2025-03-11 15:59 | slow_or_unstable | 28 | 0 | 7991 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 232 | 2025-03-13 02:25 | 2025-03-13 02:25 | suspicious | 20 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 233 | 2025-03-13 10:00 | 2025-03-13 11:59 | slow_or_unstable | 31 | 0 | 8000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 234 | 2025-03-13 13:00 | 2025-03-13 15:08 | slow_or_unstable | 27 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 235 | 2025-03-14 04:49 | 2025-03-14 04:49 | suspicious | 25 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 236 | 2025-03-14 17:37 | 2025-03-14 17:37 | suspicious | 23 | 0 | 131 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 237 | 2025-03-16 08:10 | 2025-03-16 08:10 | suspicious | 26 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 238 | 2025-03-17 13:07 | 2025-03-17 13:59 | slow_or_unstable | 28 | 0 | 7967 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 239 | 2025-03-17 14:01 | 2025-03-17 15:59 | slow_or_unstable | 27 | 0 | 7996 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 240 | 2025-03-17 20:29 | 2025-03-17 20:29 | suspicious | 24 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 241 | 2025-03-18 10:00 | 2025-03-18 11:59 | slow_or_unstable | 27 | 0 | 7985 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 242 | 2025-03-18 13:00 | 2025-03-18 15:59 | slow_or_unstable | 31 | 0 | 7980 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 243 | 2025-03-19 10:07 | 2025-03-19 10:07 | suspicious | 26 | 0 | 227 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 244 | 2025-03-19 10:38 | 2025-03-19 10:38 | suspicious | 27 | 0 | 248 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 245 | 2025-03-19 15:34 | 2025-03-22 15:51 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 246 | 2025-03-24 00:45 | 2025-03-24 00:45 | suspicious | 28 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 247 | 2025-03-25 10:00 | 2025-03-25 11:59 | slow_or_unstable | 31 | 0 | 7997 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 248 | 2025-03-25 13:00 | 2025-03-25 15:59 | slow_or_unstable | 30 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 249 | 2025-03-27 10:00 | 2025-03-27 11:59 | slow_or_unstable | 27 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 250 | 2025-03-27 13:00 | 2025-03-27 15:59 | slow_or_unstable | 30 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 251 | 2025-04-01 21:29 | 2025-04-01 21:29 | suspicious | 28 | 0 | 134 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 252 | 2025-04-02 02:37 | 2025-04-02 02:37 | suspicious | 22 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 253 | 2025-04-02 04:09 | 2025-04-02 04:09 | suspicious | 22 | 0 | 139 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 254 | 2025-04-02 07:55 | 2025-04-05 11:58 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 255 | 2025-04-05 20:32 | 2025-04-05 20:32 | suspicious | 23 | 0 | 223 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 256 | 2025-04-06 11:23 | 2025-04-06 11:23 | suspicious | 23 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 257 | 2025-04-07 10:00 | 2025-04-07 10:35 | slow_or_unstable | 29 | 0 | 7958 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 258 | 2025-04-07 10:37 | 2025-04-07 11:59 | slow_or_unstable | 26 | 0 | 7961 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 259 | 2025-04-07 13:00 | 2025-04-07 15:59 | slow_or_unstable | 25 | 0 | 7995 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 260 | 2025-04-07 21:52 | 2025-04-07 21:52 | suspicious | 23 | 0 | 236 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 261 | 2025-04-08 10:00 | 2025-04-11 04:23 | down_or_crashing;slow_or_unstable | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 262 | 2025-04-11 15:36 | 2025-04-11 15:36 | suspicious | 27 | 0 | 239 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 263 | 2025-04-12 13:06 | 2025-04-12 13:06 | suspicious | 24 | 0 | 226 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 264 | 2025-04-14 01:32 | 2025-04-14 01:32 | suspicious | 25 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 265 | 2025-04-14 10:00 | 2025-04-14 11:59 | slow_or_unstable | 27 | 0 | 7991 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 266 | 2025-04-14 13:00 | 2025-04-14 15:59 | slow_or_unstable | 29 | 0 | 7948 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 267 | 2025-04-16 14:16 | 2025-04-16 14:16 | suspicious | 23 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 268 | 2025-04-19 07:36 | 2025-04-19 07:36 | suspicious | 25 | 0 | 221 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 269 | 2025-04-19 09:23 | 2025-04-19 09:23 | suspicious | 23 | 0 | 207 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 270 | 2025-04-20 02:10 | 2025-04-20 02:10 | suspicious | 23 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 271 | 2025-04-21 02:20 | 2025-04-21 02:20 | suspicious | 30 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 272 | 2025-04-21 10:00 | 2025-04-21 11:50 | slow_or_unstable | 28 | 0 | 7997 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 273 | 2025-04-21 11:52 | 2025-04-21 11:59 | slow_or_unstable | 25 | 0 | 7864 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 274 | 2025-04-21 13:00 | 2025-04-21 15:59 | slow_or_unstable | 29 | 0 | 7976 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 275 | 2025-04-21 23:59 | 2025-04-21 23:59 | suspicious | 24 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 276 | 2025-04-22 09:20 | 2025-04-27 03:12 | down_or_crashing | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 277 | 2025-04-28 10:00 | 2025-04-28 11:19 | slow_or_unstable | 28 | 0 | 7934 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 278 | 2025-04-28 11:21 | 2025-04-28 11:59 | slow_or_unstable | 26 | 0 | 7947 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 279 | 2025-04-28 13:00 | 2025-04-28 15:59 | slow_or_unstable | 27 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 280 | 2025-04-29 10:00 | 2025-04-29 10:42 | slow_or_unstable | 25 | 0 | 7894 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 281 | 2025-04-29 10:44 | 2025-04-29 11:59 | slow_or_unstable | 27 | 0 | 7949 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 282 | 2025-04-29 12:17 | 2025-04-29 12:17 | suspicious | 24 | 0 | 247 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 283 | 2025-04-29 13:00 | 2025-04-29 15:59 | slow_or_unstable | 29 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 284 | 2025-04-30 06:45 | 2025-04-30 06:45 | suspicious | 25 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 285 | 2025-05-01 12:00 | 2025-05-01 12:00 | suspicious | 25 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 286 | 2025-05-01 22:55 | 2025-05-01 22:55 | suspicious | 27 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 287 | 2025-05-02 02:29 | 2025-05-02 02:29 | suspicious | 27 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 288 | 2025-05-02 21:17 | 2025-05-02 21:17 | suspicious | 24 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 289 | 2025-05-05 01:04 | 2025-05-05 01:04 | suspicious | 25 | 0 | 238 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 290 | 2025-05-05 10:00 | 2025-05-05 11:59 | slow_or_unstable | 30 | 0 | 7944 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 291 | 2025-05-05 13:00 | 2025-05-05 15:59 | slow_or_unstable | 27 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 292 | 2025-05-06 10:00 | 2025-05-06 11:59 | slow_or_unstable | 28 | 0 | 7960 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 293 | 2025-05-06 13:00 | 2025-05-06 13:59 | slow_or_unstable | 27 | 0 | 7977 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 294 | 2025-05-06 14:01 | 2025-05-06 15:59 | slow_or_unstable | 28 | 0 | 7987 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 295 | 2025-05-07 09:22 | 2025-05-07 09:22 | suspicious | 24 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 296 | 2025-05-12 10:00 | 2025-05-12 11:59 | slow_or_unstable | 26 | 0 | 7967 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 297 | 2025-05-12 13:00 | 2025-05-12 15:59 | slow_or_unstable | 29 | 0 | 7977 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 298 | 2025-05-12 17:04 | 2025-05-12 17:04 | suspicious | 28 | 0 | 226 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 299 | 2025-05-12 17:41 | 2025-05-12 17:41 | suspicious | 24 | 0 | 240 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 300 | 2025-05-13 10:00 | 2025-05-13 11:59 | slow_or_unstable | 30 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 301 | 2025-05-13 13:00 | 2025-05-13 15:11 | slow_or_unstable | 27 | 0 | 7996 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 302 | 2025-05-13 15:13 | 2025-05-13 15:59 | slow_or_unstable | 28 | 0 | 7971 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 303 | 2025-05-15 10:00 | 2025-05-15 10:06 | slow_or_unstable | 26 | 0 | 7830 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 304 | 2025-05-15 10:08 | 2025-05-18 10:25 | down_or_crashing;slow_or_unstable | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 305 | 2025-05-19 10:00 | 2025-05-19 11:59 | slow_or_unstable | 28 | 0 | 7998 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 306 | 2025-05-19 13:00 | 2025-05-19 15:59 | slow_or_unstable | 33 | 0 | 8000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 307 | 2025-05-20 10:00 | 2025-05-20 11:59 | slow_or_unstable | 30 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 308 | 2025-05-20 13:00 | 2025-05-20 15:59 | slow_or_unstable | 30 | 0 | 7977 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 309 | 2025-05-20 19:10 | 2025-05-22 21:06 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 310 | 2025-05-23 10:08 | 2025-05-23 10:08 | suspicious | 23 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 311 | 2025-05-24 14:45 | 2025-05-24 14:45 | suspicious | 24 | 0 | 239 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 312 | 2025-05-26 01:19 | 2025-05-30 17:46 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 313 | 2025-05-30 19:14 | 2025-05-30 19:14 | suspicious | 24 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 314 | 2025-05-31 20:16 | 2025-05-31 20:16 | suspicious | 28 | 0 | 149 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 315 | 2025-06-01 03:46 | 2025-06-01 03:46 | suspicious | 21 | 0 | 124 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 316 | 2025-06-01 14:15 | 2025-06-01 14:15 | suspicious | 22 | 0 | 131 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 317 | 2025-06-03 10:00 | 2025-06-03 11:59 | slow_or_unstable | 28 | 0 | 7975 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 318 | 2025-06-03 13:00 | 2025-06-03 15:59 | slow_or_unstable | 29 | 0 | 7997 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 319 | 2025-06-05 10:00 | 2025-06-05 11:59 | slow_or_unstable | 29 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 320 | 2025-06-05 13:00 | 2025-06-05 15:59 | slow_or_unstable | 28 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 321 | 2025-06-05 18:04 | 2025-06-08 03:19 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 322 | 2025-06-09 10:00 | 2025-06-09 11:59 | slow_or_unstable | 27 | 0 | 7983 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 323 | 2025-06-09 13:00 | 2025-06-09 15:59 | slow_or_unstable | 31 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 324 | 2025-06-10 00:58 | 2025-06-10 00:58 | suspicious | 26 | 0 | 231 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 325 | 2025-06-10 10:00 | 2025-06-10 11:59 | slow_or_unstable | 30 | 0 | 7922 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 326 | 2025-06-10 13:00 | 2025-06-10 15:59 | slow_or_unstable | 28 | 0 | 7971 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 327 | 2025-06-10 21:22 | 2025-06-10 21:22 | suspicious | 22 | 0 | 224 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 328 | 2025-06-12 02:36 | 2025-06-12 02:36 | suspicious | 27 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 329 | 2025-06-14 08:27 | 2025-06-14 08:27 | suspicious | 24 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 330 | 2025-06-14 11:33 | 2025-06-14 11:33 | suspicious | 23 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 331 | 2025-06-15 23:13 | 2025-06-15 23:13 | suspicious | 28 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 332 | 2025-06-16 10:50 | 2025-06-20 21:09 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 333 | 2025-06-21 05:50 | 2025-06-21 05:50 | suspicious | 26 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 334 | 2025-06-21 14:16 | 2025-06-21 14:16 | suspicious | 22 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 335 | 2025-06-24 14:17 | 2025-06-24 15:59 | slow_or_unstable | 26 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 336 | 2025-06-24 20:30 | 2025-06-24 20:30 | suspicious | 21 | 0 | 215 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 337 | 2025-06-25 16:05 | 2025-06-25 16:05 | suspicious | 22 | 0 | 247 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 338 | 2025-06-26 10:00 | 2025-06-26 11:59 | slow_or_unstable | 27 | 0 | 7956 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 339 | 2025-06-26 13:00 | 2025-06-26 13:43 | slow_or_unstable | 27 | 0 | 7886 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 340 | 2025-06-26 13:45 | 2025-06-26 15:59 | slow_or_unstable | 28 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 341 | 2025-06-27 08:38 | 2025-06-27 08:38 | suspicious | 25 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 342 | 2025-06-27 14:57 | 2025-06-27 14:57 | suspicious | 19 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 343 | 2025-06-28 19:33 | 2025-06-28 19:33 | suspicious | 25 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 344 | 2025-06-29 20:12 | 2025-06-29 20:12 | suspicious | 25 | 0 | 233 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 345 | 2025-06-30 10:00 | 2025-06-30 11:59 | slow_or_unstable | 30 | 0 | 7943 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 346 | 2025-06-30 13:00 | 2025-06-30 15:59 | slow_or_unstable | 28 | 0 | 7936 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 347 | 2025-07-01 10:00 | 2025-07-01 11:59 | slow_or_unstable | 29 | 0 | 7963 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 348 | 2025-07-01 13:00 | 2025-07-01 15:59 | slow_or_unstable | 30 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 349 | 2025-07-03 03:26 | 2025-07-03 03:26 | suspicious | 23 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 350 | 2025-07-03 20:37 | 2025-07-07 09:46 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 351 | 2025-07-07 10:00 | 2025-07-07 11:59 | slow_or_unstable | 28 | 0 | 7986 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 352 | 2025-07-07 13:00 | 2025-07-07 14:02 | slow_or_unstable | 26 | 0 | 7970 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 353 | 2025-07-07 14:04 | 2025-07-07 15:59 | slow_or_unstable | 28 | 0 | 7904 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 354 | 2025-07-08 05:46 | 2025-07-08 05:46 | suspicious | 24 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 355 | 2025-07-08 08:53 | 2025-07-08 08:53 | suspicious | 25 | 0 | 239 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 356 | 2025-07-08 10:00 | 2025-07-08 11:59 | slow_or_unstable | 27 | 0 | 7988 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 357 | 2025-07-08 13:00 | 2025-07-08 15:59 | slow_or_unstable | 29 | 0 | 7989 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 358 | 2025-07-09 00:57 | 2025-07-09 00:57 | suspicious | 26 | 0 | 230 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 359 | 2025-07-10 01:08 | 2025-07-10 01:08 | suspicious | 26 | 0 | 226 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 360 | 2025-07-10 10:00 | 2025-07-10 11:59 | slow_or_unstable | 28 | 0 | 7987 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 361 | 2025-07-10 13:00 | 2025-07-10 15:59 | slow_or_unstable | 29 | 0 | 7960 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 362 | 2025-07-11 13:52 | 2025-07-11 13:52 | suspicious | 25 | 0 | 232 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 363 | 2025-07-11 16:06 | 2025-07-11 16:06 | suspicious | 25 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 364 | 2025-07-12 04:18 | 2025-07-15 05:31 | down_or_crashing | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 365 | 2025-07-19 12:51 | 2025-07-19 12:51 | suspicious | 26 | 0 | 243 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 366 | 2025-07-21 10:00 | 2025-07-21 11:59 | slow_or_unstable | 28 | 0 | 7991 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 367 | 2025-07-21 13:00 | 2025-07-21 15:59 | slow_or_unstable | 28 | 0 | 7978 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 368 | 2025-07-21 18:59 | 2025-07-21 18:59 | suspicious | 26 | 0 | 234 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 369 | 2025-07-22 10:00 | 2025-07-22 11:59 | slow_or_unstable | 28 | 0 | 7864 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 370 | 2025-07-22 13:00 | 2025-07-22 15:59 | slow_or_unstable | 28 | 0 | 7998 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 371 | 2025-07-23 13:24 | 2025-07-26 03:29 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 372 | 2025-07-26 09:56 | 2025-07-26 09:56 | suspicious | 28 | 0 | 237 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 373 | 2025-07-28 10:00 | 2025-07-28 11:59 | slow_or_unstable | 28 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 374 | 2025-07-28 13:00 | 2025-07-28 13:40 | slow_or_unstable | 26 | 0 | 7936 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 375 | 2025-07-28 13:42 | 2025-07-28 15:59 | slow_or_unstable | 30 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 376 | 2025-07-29 10:00 | 2025-07-29 11:59 | slow_or_unstable | 26 | 0 | 7961 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 377 | 2025-07-29 12:07 | 2025-07-29 12:07 | suspicious | 23 | 0 | 234 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 378 | 2025-07-29 13:00 | 2025-07-29 15:59 | slow_or_unstable | 30 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 379 | 2025-07-29 18:03 | 2025-08-02 05:32 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 380 | 2025-08-04 10:00 | 2025-08-04 11:59 | slow_or_unstable | 29 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 381 | 2025-08-05 23:16 | 2025-08-05 23:16 | suspicious | 25 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 382 | 2025-08-06 08:50 | 2025-08-06 08:50 | suspicious | 27 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 383 | 2025-08-07 09:53 | 2025-08-07 09:53 | suspicious | 25 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 384 | 2025-08-10 19:37 | 2025-08-10 19:37 | suspicious | 21 | 0 | 241 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 385 | 2025-08-14 14:03 | 2025-08-14 14:03 | suspicious | 18 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 386 | 2025-08-14 18:37 | 2025-08-14 18:37 | suspicious | 21 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 387 | 2025-08-18 10:00 | 2025-08-18 11:59 | slow_or_unstable | 29 | 0 | 7899 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 388 | 2025-08-18 13:00 | 2025-08-18 15:59 | slow_or_unstable | 28 | 0 | 7989 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 389 | 2025-08-19 10:00 | 2025-08-19 11:59 | slow_or_unstable | 28 | 0 | 7913 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 390 | 2025-08-19 13:00 | 2025-08-19 15:59 | slow_or_unstable | 27 | 0 | 7998 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 391 | 2025-08-19 20:38 | 2025-08-19 20:38 | suspicious | 25 | 0 | 235 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 392 | 2025-08-21 06:48 | 2025-08-21 06:48 | suspicious | 21 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 393 | 2025-08-24 01:05 | 2025-08-28 22:15 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 394 | 2025-08-29 07:15 | 2025-08-29 07:15 | suspicious | 24 | 0 | 135 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 395 | 2025-08-29 14:27 | 2025-08-29 14:27 | suspicious | 23 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 396 | 2025-08-29 23:03 | 2025-08-29 23:03 | suspicious | 28 | 0 | 149 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 397 | 2025-08-30 19:20 | 2025-08-30 19:20 | suspicious | 26 | 0 | 124 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 398 | 2025-09-01 16:34 | 2025-09-01 16:34 | suspicious | 23 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 399 | 2025-09-01 19:33 | 2025-09-01 19:33 | suspicious | 27 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 400 | 2025-09-02 18:38 | 2025-09-04 23:15 | down_or_crashing | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 401 | 2025-09-05 12:21 | 2025-09-05 12:21 | suspicious | 21 | 0 | 231 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 402 | 2025-09-05 16:49 | 2025-09-05 16:49 | suspicious | 25 | 0 | 226 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 403 | 2025-09-06 18:05 | 2025-09-06 18:05 | suspicious | 25 | 0 | 239 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 404 | 2025-09-07 21:19 | 2025-09-10 07:35 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 405 | 2025-09-11 08:41 | 2025-09-11 08:41 | suspicious | 22 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 406 | 2025-09-11 23:30 | 2025-09-11 23:30 | suspicious | 27 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 407 | 2025-09-15 03:50 | 2025-09-15 03:50 | suspicious | 25 | 0 | 200 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 408 | 2025-09-15 10:00 | 2025-09-15 11:59 | slow_or_unstable | 27 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 409 | 2025-09-15 13:00 | 2025-09-15 15:59 | slow_or_unstable | 28 | 0 | 7994 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 410 | 2025-09-16 05:17 | 2025-09-16 05:17 | suspicious | 24 | 0 | 241 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 411 | 2025-09-16 10:00 | 2025-09-16 11:59 | slow_or_unstable | 27 | 0 | 7989 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 412 | 2025-09-16 13:00 | 2025-09-19 04:55 | down_or_crashing;slow_or_unstable | 29 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 413 | 2025-09-22 01:11 | 2025-09-22 01:11 | suspicious | 24 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 414 | 2025-09-22 10:00 | 2025-09-22 11:59 | slow_or_unstable | 27 | 0 | 7978 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 415 | 2025-09-22 13:00 | 2025-09-22 15:59 | slow_or_unstable | 27 | 0 | 7936 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 416 | 2025-09-22 16:23 | 2025-09-27 15:27 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 417 | 2025-09-28 11:00 | 2025-09-28 11:00 | suspicious | 32 | 0 | 240 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 418 | 2025-09-29 10:00 | 2025-09-29 11:59 | slow_or_unstable | 28 | 0 | 7995 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 419 | 2025-09-29 13:00 | 2025-09-29 15:22 | slow_or_unstable | 29 | 0 | 7991 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 420 | 2025-09-29 15:24 | 2025-09-29 15:59 | slow_or_unstable | 27 | 0 | 7764 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 421 | 2025-09-30 08:50 | 2025-10-03 07:48 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 422 | 2025-10-04 10:46 | 2025-10-04 10:46 | suspicious | 26 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 423 | 2025-10-04 23:45 | 2025-10-04 23:45 | suspicious | 24 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 424 | 2025-10-05 22:38 | 2025-10-05 22:38 | suspicious | 26 | 0 | 139 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 425 | 2025-10-07 10:00 | 2025-10-07 10:26 | slow_or_unstable | 28 | 0 | 7979 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 426 | 2025-10-07 10:28 | 2025-10-07 11:59 | slow_or_unstable | 28 | 0 | 7977 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 427 | 2025-10-07 13:00 | 2025-10-07 15:59 | slow_or_unstable | 29 | 0 | 7983 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 428 | 2025-10-09 08:28 | 2025-10-09 08:28 | suspicious | 24 | 0 | 192 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 429 | 2025-10-09 10:00 | 2025-10-09 10:28 | slow_or_unstable | 26 | 0 | 7873 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 430 | 2025-10-09 10:30 | 2025-10-09 11:59 | slow_or_unstable | 29 | 0 | 7956 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 431 | 2025-10-09 13:00 | 2025-10-09 15:59 | slow_or_unstable | 28 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 432 | 2025-10-09 19:13 | 2025-10-09 19:13 | suspicious | 20 | 0 | 216 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 433 | 2025-10-11 17:37 | 2025-10-14 19:38 | down_or_crashing | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 434 | 2025-10-15 13:26 | 2025-10-15 13:26 | suspicious | 25 | 0 | 224 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 435 | 2025-10-16 00:44 | 2025-10-16 00:44 | suspicious | 24 | 0 | 240 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 436 | 2025-10-16 10:00 | 2025-10-16 11:59 | slow_or_unstable | 30 | 0 | 7967 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 437 | 2025-10-16 13:00 | 2025-10-16 15:59 | slow_or_unstable | 29 | 0 | 7942 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 438 | 2025-10-17 17:35 | 2025-10-17 17:35 | suspicious | 25 | 0 | 244 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 439 | 2025-10-17 21:45 | 2025-10-17 21:45 | suspicious | 27 | 0 | 227 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 440 | 2025-10-18 08:26 | 2025-10-21 21:48 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 441 | 2025-10-25 16:14 | 2025-10-25 16:14 | suspicious | 23 | 0 | 130 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 442 | 2025-10-25 16:29 | 2025-10-25 16:29 | suspicious | 27 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 443 | 2025-10-26 18:29 | 2025-10-29 03:27 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 444 | 2025-10-30 10:00 | 2025-10-30 11:06 | slow_or_unstable | 27 | 0 | 7842 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 445 | 2025-10-30 11:08 | 2025-10-30 11:59 | slow_or_unstable | 25 | 0 | 7927 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 446 | 2025-10-30 13:00 | 2025-10-30 15:59 | slow_or_unstable | 28 | 0 | 7952 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 447 | 2025-10-30 18:43 | 2025-10-30 18:43 | suspicious | 27 | 0 | 229 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 448 | 2025-10-31 01:53 | 2025-10-31 01:53 | suspicious | 23 | 0 | 227 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 449 | 2025-10-31 09:34 | 2025-11-02 10:46 | down_or_crashing | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 450 | 2025-11-04 11:34 | 2025-11-04 11:59 | slow_or_unstable | 26 | 0 | 7831 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 451 | 2025-11-04 13:00 | 2025-11-04 15:59 | slow_or_unstable | 29 | 0 | 7966 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 452 | 2025-11-05 15:56 | 2025-11-05 15:56 | suspicious | 23 | 0 | 221 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 453 | 2025-11-06 00:15 | 2025-11-06 00:15 | suspicious | 22 | 0 | 208 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 454 | 2025-11-06 07:27 | 2025-11-06 07:27 | suspicious | 24 | 0 | 207 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 455 | 2025-11-06 10:00 | 2025-11-06 11:59 | slow_or_unstable | 28 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 456 | 2025-11-06 13:00 | 2025-11-06 15:59 | slow_or_unstable | 26 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 457 | 2025-11-07 12:10 | 2025-11-10 08:18 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 458 | 2025-11-10 10:00 | 2025-11-10 11:59 | slow_or_unstable | 27 | 0 | 7943 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 459 | 2025-11-10 13:00 | 2025-11-10 15:59 | slow_or_unstable | 29 | 0 | 7972 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 460 | 2025-11-11 10:00 | 2025-11-11 11:59 | slow_or_unstable | 28 | 0 | 7935 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 461 | 2025-11-11 13:00 | 2025-11-11 15:59 | slow_or_unstable | 28 | 0 | 7962 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 462 | 2025-11-12 20:34 | 2025-11-12 20:34 | suspicious | 23 | 0 | 240 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 463 | 2025-11-12 22:35 | 2025-11-12 22:35 | suspicious | 27 | 0 | 241 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 464 | 2025-11-13 10:00 | 2025-11-13 11:59 | slow_or_unstable | 28 | 0 | 7998 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 465 | 2025-11-13 13:00 | 2025-11-13 15:58 | slow_or_unstable | 28 | 0 | 7949 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 466 | 2025-11-17 14:35 | 2025-11-21 00:46 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 467 | 2025-11-21 09:19 | 2025-11-21 09:19 | suspicious | 22 | 0 | 139 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 468 | 2025-11-21 18:49 | 2025-11-21 18:49 | suspicious | 23 | 0 | 135 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 469 | 2025-11-23 12:02 | 2025-11-25 15:21 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 470 | 2025-11-26 06:30 | 2025-11-26 06:30 | suspicious | 26 | 0 | 135 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 471 | 2025-11-26 17:39 | 2025-11-26 17:39 | suspicious | 23 | 0 | 112 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 472 | 2025-11-27 05:06 | 2025-11-27 05:06 | suspicious | 28 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 473 | 2025-11-27 15:44 | 2025-11-27 15:59 | slow_or_unstable | 26 | 0 | 7983 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 474 | 2025-12-01 10:00 | 2025-12-01 11:59 | slow_or_unstable | 30 | 0 | 7912 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 475 | 2025-12-01 13:00 | 2025-12-01 15:59 | slow_or_unstable | 30 | 0 | 7954 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 476 | 2025-12-02 07:15 | 2025-12-06 15:53 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 477 | 2025-12-07 03:45 | 2025-12-07 03:45 | suspicious | 26 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 478 | 2025-12-08 03:08 | 2025-12-08 03:08 | suspicious | 26 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 479 | 2025-12-09 07:46 | 2025-12-13 21:46 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 480 | 2025-12-15 10:00 | 2025-12-15 11:59 | slow_or_unstable | 28 | 0 | 7984 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 481 | 2025-12-15 13:00 | 2025-12-15 15:59 | slow_or_unstable | 29 | 0 | 8000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 482 | 2025-12-16 00:42 | 2025-12-16 00:42 | suspicious | 24 | 0 | 211 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 483 | 2025-12-16 07:06 | 2025-12-16 07:06 | suspicious | 25 | 0 | 231 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 484 | 2025-12-16 10:00 | 2025-12-16 11:59 | slow_or_unstable | 28 | 0 | 7986 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 485 | 2025-12-16 13:00 | 2025-12-16 15:37 | slow_or_unstable | 28 | 0 | 7995 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 486 | 2025-12-16 16:46 | 2025-12-16 16:46 | suspicious | 26 | 0 | 127 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 487 | 2025-12-21 05:58 | 2025-12-21 05:58 | suspicious | 25 | 0 | 240 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 488 | 2025-12-21 13:32 | 2025-12-21 13:32 | suspicious | 19 | 0 | 247 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 489 | 2025-12-22 05:13 | 2025-12-22 05:13 | suspicious | 26 | 0 | 214 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 490 | 2025-12-22 10:00 | 2025-12-22 11:59 | slow_or_unstable | 29 | 0 | 7987 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 491 | 2025-12-22 13:00 | 2025-12-22 15:05 | slow_or_unstable | 28 | 0 | 7975 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 492 | 2025-12-22 15:07 | 2025-12-22 15:59 | slow_or_unstable | 27 | 0 | 7952 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 493 | 2025-12-23 05:53 | 2025-12-23 05:53 | suspicious | 24 | 0 | 239 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 494 | 2025-12-23 10:00 | 2025-12-23 11:59 | slow_or_unstable | 27 | 0 | 7960 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 495 | 2025-12-23 13:00 | 2025-12-23 15:59 | slow_or_unstable | 27 | 0 | 7979 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 496 | 2025-12-23 20:24 | 2025-12-27 02:08 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 497 | 2025-12-29 10:00 | 2025-12-29 11:59 | slow_or_unstable | 27 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 498 | 2025-12-29 13:00 | 2025-12-29 14:34 | slow_or_unstable | 27 | 0 | 7960 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 499 | 2025-12-29 14:36 | 2025-12-29 15:26 | slow_or_unstable | 27 | 0 | 7906 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 500 | 2025-12-29 15:28 | 2025-12-29 15:59 | slow_or_unstable | 26 | 0 | 7882 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 501 | 2025-12-30 10:00 | 2025-12-30 10:30 | slow_or_unstable | 26 | 0 | 7874 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 502 | 2025-12-30 10:32 | 2025-12-30 11:59 | slow_or_unstable | 27 | 0 | 7914 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 503 | 2025-12-30 13:00 | 2025-12-30 15:59 | slow_or_unstable | 28 | 0 | 7952 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 504 | 2025-12-31 09:00 | 2025-12-31 09:00 | suspicious | 22 | 0 | 132 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 505 | 2026-01-01 06:35 | 2026-01-01 06:35 | suspicious | 24 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 506 | 2026-01-02 01:04 | 2026-01-02 01:04 | suspicious | 25 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 507 | 2026-01-02 18:28 | 2026-01-02 18:28 | suspicious | 27 | 0 | 132 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 508 | 2026-01-02 23:13 | 2026-01-02 23:13 | suspicious | 24 | 0 | 139 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 509 | 2026-01-03 06:01 | 2026-01-03 06:01 | suspicious | 22 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 510 | 2026-01-05 07:59 | 2026-01-05 07:59 | suspicious | 27 | 0 | 228 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 511 | 2026-01-05 10:00 | 2026-01-05 11:59 | slow_or_unstable | 29 | 0 | 7918 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 512 | 2026-01-05 12:35 | 2026-01-05 12:35 | suspicious | 27 | 0 | 233 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 513 | 2026-01-05 13:00 | 2026-01-05 13:39 | slow_or_unstable | 27 | 0 | 7894 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 514 | 2026-01-05 13:41 | 2026-01-05 15:59 | slow_or_unstable | 29 | 0 | 7991 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 515 | 2026-01-06 10:00 | 2026-01-06 11:59 | slow_or_unstable | 28 | 0 | 7926 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 516 | 2026-01-06 13:00 | 2026-01-08 17:21 | down_or_crashing;slow_or_unstable | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 517 | 2026-01-10 14:53 | 2026-01-10 14:53 | suspicious | 23 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 518 | 2026-01-11 23:20 | 2026-01-11 23:20 | suspicious | 25 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 519 | 2026-01-12 01:03 | 2026-01-12 01:03 | suspicious | 26 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 520 | 2026-01-12 07:24 | 2026-01-12 07:24 | suspicious | 23 | 0 | 129 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 521 | 2026-01-12 11:12 | 2026-01-12 11:12 | suspicious | 25 | 0 | 143 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 522 | 2026-01-13 10:00 | 2026-01-13 11:59 | slow_or_unstable | 28 | 0 | 7962 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 523 | 2026-01-13 13:00 | 2026-01-13 15:59 | slow_or_unstable | 28 | 0 | 7973 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 524 | 2026-01-14 07:50 | 2026-01-14 07:50 | suspicious | 20 | 0 | 230 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 525 | 2026-01-14 20:44 | 2026-01-14 20:44 | suspicious | 25 | 0 | 246 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 526 | 2026-01-15 10:00 | 2026-01-15 11:59 | slow_or_unstable | 29 | 0 | 7942 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 527 | 2026-01-15 13:00 | 2026-01-15 14:54 | slow_or_unstable | 28 | 0 | 7953 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 528 | 2026-01-15 14:56 | 2026-01-15 15:05 | slow_or_unstable | 25 | 0 | 7870 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 529 | 2026-01-15 15:07 | 2026-01-15 15:59 | slow_or_unstable | 27 | 0 | 7964 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 530 | 2026-01-17 04:49 | 2026-01-17 04:49 | suspicious | 25 | 0 | 237 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 531 | 2026-01-17 11:35 | 2026-01-17 11:35 | suspicious | 25 | 0 | 246 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 532 | 2026-01-18 14:19 | 2026-01-18 14:19 | suspicious | 24 | 0 | 123 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 533 | 2026-01-18 18:34 | 2026-01-18 18:34 | suspicious | 25 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 534 | 2026-01-18 18:42 | 2026-01-18 18:42 | suspicious | 25 | 0 | 143 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 535 | 2026-01-20 10:00 | 2026-01-20 11:59 | slow_or_unstable | 28 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 536 | 2026-01-20 13:00 | 2026-01-20 15:06 | slow_or_unstable | 28 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 537 | 2026-01-20 15:08 | 2026-01-20 15:59 | slow_or_unstable | 27 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 538 | 2026-01-22 10:00 | 2026-01-22 11:58 | slow_or_unstable | 29 | 0 | 7969 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 539 | 2026-01-22 13:00 | 2026-01-22 15:59 | slow_or_unstable | 28 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 540 | 2026-01-22 23:34 | 2026-01-22 23:34 | suspicious | 28 | 0 | 220 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 541 | 2026-01-24 17:25 | 2026-01-27 15:59 | down_or_crashing;slow_or_unstable | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 542 | 2026-01-27 21:58 | 2026-01-27 21:58 | suspicious | 26 | 0 | 230 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 543 | 2026-01-28 02:22 | 2026-01-28 02:22 | suspicious | 22 | 0 | 231 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 544 | 2026-01-29 01:46 | 2026-01-29 01:46 | suspicious | 26 | 0 | 230 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 545 | 2026-01-29 10:00 | 2026-01-29 11:59 | slow_or_unstable | 29 | 0 | 7968 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 546 | 2026-01-29 13:00 | 2026-01-29 15:59 | slow_or_unstable | 28 | 0 | 7998 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 547 | 2026-01-29 21:34 | 2026-01-29 21:34 | suspicious | 26 | 0 | 235 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 548 | 2026-01-30 21:33 | 2026-02-04 11:05 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 549 | 2026-02-06 13:13 | 2026-02-06 13:13 | suspicious | 29 | 0 | 125 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 550 | 2026-02-07 17:40 | 2026-02-07 17:40 | suspicious | 22 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 551 | 2026-02-09 10:00 | 2026-02-09 11:59 | slow_or_unstable | 27 | 0 | 7929 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 552 | 2026-02-09 13:00 | 2026-02-09 15:59 | slow_or_unstable | 30 | 0 | 7995 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 553 | 2026-02-10 10:00 | 2026-02-10 11:59 | slow_or_unstable | 29 | 0 | 7987 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 554 | 2026-02-10 13:00 | 2026-02-10 15:59 | slow_or_unstable | 30 | 0 | 7950 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 555 | 2026-02-12 10:00 | 2026-02-12 11:59 | slow_or_unstable | 28 | 0 | 7902 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 556 | 2026-02-12 13:00 | 2026-02-12 13:36 | slow_or_unstable | 28 | 0 | 7978 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 557 | 2026-02-12 23:31 | 2026-02-12 23:31 | suspicious | 23 | 0 | 129 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 558 | 2026-02-13 23:15 | 2026-02-13 23:15 | suspicious | 25 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 559 | 2026-02-14 12:42 | 2026-02-14 12:42 | suspicious | 27 | 0 | 121 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 560 | 2026-02-15 18:27 | 2026-02-15 18:27 | suspicious | 23 | 0 | 134 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 561 | 2026-02-15 21:37 | 2026-02-18 03:42 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 562 | 2026-02-19 10:00 | 2026-02-19 11:59 | slow_or_unstable | 28 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 563 | 2026-02-19 13:00 | 2026-02-19 15:58 | slow_or_unstable | 31 | 0 | 7978 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 564 | 2026-02-20 04:33 | 2026-02-23 19:48 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 565 | 2026-02-25 13:37 | 2026-02-25 13:37 | suspicious | 23 | 0 | 134 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 566 | 2026-02-26 01:41 | 2026-02-26 01:41 | suspicious | 27 | 0 | 142 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 567 | 2026-03-01 05:04 | 2026-03-01 05:04 | suspicious | 24 | 0 | 236 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 568 | 2026-03-02 10:00 | 2026-03-02 11:59 | slow_or_unstable | 28 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 569 | 2026-03-02 13:00 | 2026-03-02 15:59 | slow_or_unstable | 29 | 0 | 7979 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 570 | 2026-03-03 10:00 | 2026-03-03 11:59 | slow_or_unstable | 28 | 0 | 7980 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 571 | 2026-03-03 13:00 | 2026-03-03 15:59 | slow_or_unstable | 28 | 0 | 7997 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 572 | 2026-03-04 07:29 | 2026-03-08 20:33 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 573 | 2026-03-10 07:44 | 2026-03-10 07:44 | suspicious | 23 | 0 | 137 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 574 | 2026-03-11 00:43 | 2026-03-11 00:43 | suspicious | 23 | 0 | 141 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 575 | 2026-03-11 01:37 | 2026-03-11 01:37 | suspicious | 27 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 576 | 2026-03-12 10:00 | 2026-03-12 11:59 | slow_or_unstable | 27 | 0 | 7942 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 577 | 2026-03-12 13:00 | 2026-03-12 15:59 | slow_or_unstable | 28 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 578 | 2026-03-12 23:20 | 2026-03-12 23:20 | suspicious | 28 | 0 | 241 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 579 | 2026-03-13 19:39 | 2026-03-13 19:39 | suspicious | 22 | 0 | 207 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 580 | 2026-03-13 22:35 | 2026-03-13 22:35 | suspicious | 26 | 0 | 209 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 581 | 2026-03-14 14:49 | 2026-03-14 14:49 | suspicious | 23 | 0 | 229 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 582 | 2026-03-15 18:20 | 2026-03-15 18:20 | suspicious | 24 | 0 | 119 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 583 | 2026-03-19 11:30 | 2026-03-22 05:10 | down_or_crashing | 28 | 28 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 584 | 2026-03-23 10:00 | 2026-03-23 11:59 | slow_or_unstable | 28 | 0 | 7901 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 585 | 2026-03-23 13:00 | 2026-03-23 15:59 | slow_or_unstable | 29 | 0 | 7986 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 586 | 2026-03-24 10:00 | 2026-03-24 11:59 | slow_or_unstable | 29 | 0 | 7938 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 587 | 2026-03-24 13:00 | 2026-03-24 15:59 | slow_or_unstable | 30 | 0 | 7993 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 588 | 2026-03-24 16:01 | 2026-03-24 16:01 | suspicious | 20 | 0 | 219 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 589 | 2026-03-26 10:00 | 2026-03-26 11:59 | slow_or_unstable | 27 | 0 | 7999 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 590 | 2026-03-26 13:00 | 2026-03-29 00:05 | down_or_crashing;slow_or_unstable | 31 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 591 | 2026-03-29 18:32 | 2026-03-29 18:32 | suspicious | 27 | 0 | 136 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 592 | 2026-03-29 19:31 | 2026-03-29 19:31 | suspicious | 27 | 0 | 135 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 593 | 2026-03-31 17:37 | 2026-03-31 17:37 | suspicious | 20 | 0 | 130 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 594 | 2026-03-31 18:18 | 2026-03-31 18:18 | suspicious | 20 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 595 | 2026-03-31 22:09 | 2026-03-31 22:09 | suspicious | 22 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 596 | 2026-04-01 00:35 | 2026-04-01 00:35 | suspicious | 25 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 597 | 2026-04-02 04:21 | 2026-04-02 04:21 | suspicious | 23 | 0 | 143 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 598 | 2026-04-02 12:53 | 2026-04-05 06:11 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 599 | 2026-04-05 06:27 | 2026-04-05 06:27 | suspicious | 24 | 0 | 231 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 600 | 2026-04-05 11:46 | 2026-04-05 11:46 | suspicious | 28 | 0 | 236 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 601 | 2026-04-05 16:13 | 2026-04-05 16:13 | suspicious | 23 | 0 | 248 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 602 | 2026-04-06 10:00 | 2026-04-06 11:59 | slow_or_unstable | 29 | 0 | 7998 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 603 | 2026-04-06 13:00 | 2026-04-06 15:59 | slow_or_unstable | 30 | 0 | 7990 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 604 | 2026-04-07 08:28 | 2026-04-07 08:28 | suspicious | 22 | 0 | 242 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 605 | 2026-04-07 10:00 | 2026-04-10 08:58 | down_or_crashing;slow_or_unstable | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 606 | 2026-04-13 03:02 | 2026-04-13 03:02 | suspicious | 22 | 0 | 213 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 607 | 2026-04-13 09:28 | 2026-04-13 09:28 | suspicious | 26 | 0 | 234 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 608 | 2026-04-13 10:00 | 2026-04-13 11:59 | slow_or_unstable | 31 | 0 | 7995 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 609 | 2026-04-13 13:00 | 2026-04-13 15:59 | slow_or_unstable | 26 | 0 | 7961 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 610 | 2026-04-14 10:00 | 2026-04-14 11:59 | slow_or_unstable | 27 | 0 | 7963 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 611 | 2026-04-14 13:00 | 2026-04-14 15:59 | slow_or_unstable | 31 | 0 | 7973 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 612 | 2026-04-15 11:58 | 2026-04-15 11:58 | suspicious | 21 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 613 | 2026-04-16 02:43 | 2026-04-16 02:43 | suspicious | 21 | 0 | 134 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 614 | 2026-04-16 08:34 | 2026-04-16 08:34 | suspicious | 23 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 615 | 2026-04-20 10:00 | 2026-04-20 11:59 | slow_or_unstable | 27 | 0 | 7963 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 616 | 2026-04-20 13:00 | 2026-04-20 15:59 | slow_or_unstable | 28 | 0 | 7960 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 617 | 2026-04-21 08:58 | 2026-04-21 08:58 | suspicious | 26 | 0 | 240 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 618 | 2026-04-21 10:00 | 2026-04-21 11:59 | slow_or_unstable | 31 | 0 | 7954 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 619 | 2026-04-21 13:00 | 2026-04-21 14:53 | slow_or_unstable | 33 | 0 | 7985 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 620 | 2026-04-21 14:55 | 2026-04-21 15:59 | slow_or_unstable | 27 | 0 | 7824 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 621 | 2026-04-23 00:38 | 2026-04-23 00:38 | suspicious | 27 | 0 | 234 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 622 | 2026-04-24 22:35 | 2026-04-24 22:35 | suspicious | 25 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 623 | 2026-04-25 15:29 | 2026-04-25 15:29 | suspicious | 26 | 0 | 139 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 624 | 2026-04-28 04:20 | 2026-05-02 20:43 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 625 | 2026-05-04 10:00 | 2026-05-04 11:59 | slow_or_unstable | 28 | 0 | 7980 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 626 | 2026-05-04 13:00 | 2026-05-04 13:50 | slow_or_unstable | 28 | 0 | 7938 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 627 | 2026-05-04 13:52 | 2026-05-04 15:59 | slow_or_unstable | 27 | 0 | 7997 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 628 | 2026-05-05 10:00 | 2026-05-05 11:59 | slow_or_unstable | 27 | 0 | 7974 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 629 | 2026-05-05 13:00 | 2026-05-05 15:59 | slow_or_unstable | 28 | 0 | 7955 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 630 | 2026-05-06 09:29 | 2026-05-08 22:08 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 631 | 2026-05-08 23:39 | 2026-05-08 23:39 | suspicious | 22 | 0 | 145 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 632 | 2026-05-10 16:39 | 2026-05-10 16:39 | suspicious | 23 | 0 | 140 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 633 | 2026-05-10 17:58 | 2026-05-10 17:58 | suspicious | 24 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 634 | 2026-05-11 02:10 | 2026-05-11 02:10 | suspicious | 27 | 0 | 121 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 635 | 2026-05-11 10:28 | 2026-05-11 10:28 | suspicious | 24 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 636 | 2026-05-12 00:35 | 2026-05-12 00:35 | suspicious | 19 | 0 | 147 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 637 | 2026-05-12 12:57 | 2026-05-12 12:57 | suspicious | 22 | 0 | 149 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 638 | 2026-05-14 07:59 | 2026-05-14 07:59 | suspicious | 31 | 0 | 245 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 639 | 2026-05-14 10:00 | 2026-05-14 11:59 | slow_or_unstable | 27 | 0 | 7959 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 640 | 2026-05-14 13:00 | 2026-05-14 15:59 | slow_or_unstable | 29 | 0 | 7946 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 641 | 2026-05-17 03:27 | 2026-05-17 03:27 | suspicious | 20 | 0 | 142 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 642 | 2026-05-17 17:28 | 2026-05-17 17:28 | suspicious | 26 | 0 | 138 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 643 | 2026-05-17 23:18 | 2026-05-17 23:18 | suspicious | 27 | 0 | 142 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 644 | 2026-05-18 18:03 | 2026-05-18 18:03 | suspicious | 21 | 0 | 133 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 645 | 2026-05-18 23:04 | 2026-05-18 23:04 | suspicious | 27 | 0 | 130 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 646 | 2026-05-19 13:54 | 2026-05-19 15:59 | slow_or_unstable | 30 | 0 | 7988 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 647 | 2026-05-21 10:00 | 2026-05-21 11:59 | slow_or_unstable | 29 | 0 | 7946 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 648 | 2026-05-21 13:00 | 2026-05-21 15:59 | slow_or_unstable | 28 | 0 | 7981 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 649 | 2026-05-23 21:13 | 2026-05-27 23:49 | down_or_crashing | 25 | 25 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 650 | 2026-05-30 13:12 | 2026-05-30 13:12 | suspicious | 27 | 0 | 146 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 651 | 2026-05-30 14:33 | 2026-06-01 21:33 | down_or_crashing | 27 | 27 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 652 | 2026-06-02 08:44 | 2026-06-02 08:44 | suspicious | 24 | 0 | 223 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 653 | 2026-06-02 10:00 | 2026-06-02 11:07 | slow_or_unstable | 26 | 0 | 7915 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 654 | 2026-06-02 11:09 | 2026-06-02 11:52 | slow_or_unstable | 31 | 0 | 7832 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 655 | 2026-06-02 11:54 | 2026-06-02 11:59 | slow_or_unstable | 26 | 0 | 7820 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 656 | 2026-06-02 13:00 | 2026-06-02 14:07 | slow_or_unstable | 27 | 0 | 7946 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 657 | 2026-06-02 14:09 | 2026-06-02 15:59 | slow_or_unstable | 29 | 0 | 7996 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 658 | 2026-06-04 10:00 | 2026-06-04 11:59 | slow_or_unstable | 29 | 0 | 7964 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 659 | 2026-06-04 13:00 | 2026-06-04 15:59 | slow_or_unstable | 27 | 0 | 7979 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 660 | 2026-06-07 11:15 | 2026-06-07 11:15 | suspicious | 20 | 0 | 142 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 661 | 2026-06-08 11:45 | 2026-06-08 11:45 | suspicious | 24 | 0 | 148 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 662 | 2026-06-08 13:19 | 2026-06-08 13:19 | suspicious | 26 | 0 | 144 | measured latency plus traffic/error/suspicious-request spike from log metrics |
+| 663 | 2026-06-08 20:14 | 2026-06-10 04:17 | down_or_crashing | 26 | 26 | 12000 | measured latency plus traffic/error/suspicious-request spike from log metrics |
 
 ## 4. HIDDEN BONUS — Clue Candidates
 
@@ -432,6 +710,6 @@ No hidden-bonus candidates detected by current clue rules.
 
 ## 5. Important Limitations
 
-- This log format does **not** include actual response time, so slow/unstable periods are inferred from traffic and error spikes.
+- This log format includes measured latency as field 6 (`latency_ms`), so slow/unstable periods can be backed by latency metrics.
 - This log format does **not** include User-Agent or request body, so tool fingerprinting and POST-body payloads are unavailable.
 - Scores are explainable heuristics for prioritization; final claims should cite evidence rows.
