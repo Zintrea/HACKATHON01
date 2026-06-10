@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>H1 Incident Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">H1 Hackathon · Script-generated evidence</p>
+      <h1>NexusCart Incident Dashboard</h1>
+      <p class="subtitle">WHO attacked, WHEN the system became unstable, HOW endpoint variants caused 5xx errors, and what suffix clue was found.</p>
+    </div>
+    <div class="hero-note">
+      <strong>Presentation-safe:</strong><br />เปิดไฟล์นี้ได้โดย double-click <code>index.html</code><br />ไม่ต้องมี backend
+    </div>
+  </header>
+
+  <main>
+    <section id="overview" class="grid cards"></section>
+
+    <section class="panel story-panel">
+      <div>
+        <h2>Investigation Story</h2>
+        <ol class="story-steps">
+          <li><b>Parser</b>: raw log → structured requests</li>
+          <li><b>Detector</b>: endpoint/status → red flags</li>
+          <li><b>Scoring</b>: red flags → explainable risk score</li>
+          <li><b>Aggregation</b>: requests → IP / endpoint / time evidence</li>
+          <li><b>Dashboard</b>: evidence → presentation story</li>
+        </ol>
+      </div>
+      <blockquote>
+        We do not manually read 21M log lines. We transform them into reproducible evidence.
+      </blockquote>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">WHO ARE THEY?</p>
+          <h2>Top suspicious IP addresses</h2>
+        </div>
+        <span class="pill">high-confidence group</span>
+      </div>
+      <div id="attackers"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">HOW?</p>
+          <h2>Normal endpoints vs suspicious variants</h2>
+        </div>
+        <span class="pill warning">Key insight: /cart ≠ /cart_</span>
+      </div>
+      <div id="endpoint-comparison"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">HIDDEN BONUS CANDIDATE</p>
+          <h2>Suffix pattern sequence</h2>
+        </div>
+        <span class="pill">candidate, not final proof</span>
+      </div>
+      <div id="suffix-sequence" class="suffix-sequence"></div>
+      <div id="suffix-table"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">WHEN?</p>
+          <h2>Incident windows</h2>
+        </div>
+        <span class="pill danger">down / crashing windows</span>
+      </div>
+      <div id="incidents"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">EVIDENCE</p>
+          <h2>Suspicious request examples</h2>
+        </div>
+        <span class="pill">raw log line references</span>
+      </div>
+      <div id="evidence"></div>
+    </section>
+
+    <section class="panel limitations">
+      <h2>Limitations we should say out loud</h2>
+      <ul>
+        <li>No response-time field → slowdown is <b>inferred</b> from traffic/error patterns.</li>
+        <li>No User-Agent → cannot identify tools like sqlmap/curl from UA.</li>
+        <li>No request body → payloads are visible only in endpoint/path/query.</li>
+        <li>Scores are explainable heuristics; final claims cite evidence rows.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Generated from <code>Dorm/code/output</code>. Static dashboard for presentation.
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

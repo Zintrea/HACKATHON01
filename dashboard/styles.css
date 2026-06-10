@@ -1,0 +1,62 @@
+:root {
+  --bg: #0b1020;
+  --panel: #111a33;
+  --panel-2: #16213f;
+  --text: #eef4ff;
+  --muted: #a9b8d8;
+  --accent: #7dd3fc;
+  --accent-2: #c084fc;
+  --danger: #fb7185;
+  --warning: #fbbf24;
+  --ok: #34d399;
+  --line: rgba(255,255,255,.11);
+  --shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, rgba(125,211,252,.16), transparent 30%), radial-gradient(circle at 80% 10%, rgba(192,132,252,.12), transparent 26%), var(--bg);
+}
+.hero, main, footer { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+.hero { display:flex; justify-content:space-between; gap:24px; padding:42px 0 28px; align-items:flex-end; }
+h1 { font-size: clamp(34px, 5vw, 66px); line-height:.95; margin: 8px 0 12px; letter-spacing:-.04em; }
+h2 { margin:0; font-size: 24px; }
+.subtitle { max-width: 760px; color: var(--muted); font-size: 18px; line-height:1.55; }
+.eyebrow { color: var(--accent); text-transform:uppercase; letter-spacing:.12em; font-size:12px; font-weight:800; margin:0 0 8px; }
+.hero-note { border:1px solid var(--line); background:rgba(17,26,51,.75); padding:18px; border-radius:18px; color:var(--muted); box-shadow: var(--shadow); min-width:260px; }
+code { color:#bae6fd; }
+.grid { display:grid; gap:16px; }
+.cards { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-bottom:18px; }
+.card, .panel { background: linear-gradient(180deg, rgba(22,33,63,.92), rgba(17,26,51,.92)); border:1px solid var(--line); border-radius:22px; box-shadow: var(--shadow); }
+.card { padding:18px; }
+.card .value { font-size:28px; font-weight:900; margin-top:8px; }
+.card .label { color:var(--muted); font-size:13px; }
+.panel { padding:24px; margin:18px 0; overflow:hidden; }
+.section-title { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-bottom:18px; }
+.pill { display:inline-flex; align-items:center; padding:7px 11px; border-radius:999px; background:rgba(125,211,252,.13); border:1px solid rgba(125,211,252,.25); color:#dff7ff; font-size:12px; font-weight:800; }
+.pill.warning { background:rgba(251,191,36,.13); border-color:rgba(251,191,36,.35); color:#fde68a; }
+.pill.danger { background:rgba(251,113,133,.13); border-color:rgba(251,113,133,.35); color:#fecdd3; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th, td { padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+th { color:#c7d2fe; font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+tr:hover td { background: rgba(255,255,255,.035); }
+.bar { height:10px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; margin-top:6px; }
+.bar > span { display:block; height:100%; background:linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius:999px; }
+.endpoint-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:16px; }
+.endpoint-card { background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:18px; padding:16px; }
+.endpoint-card h3 { margin:0 0 8px; }
+.status-row { display:grid; grid-template-columns: 90px 1fr 80px; align-items:center; gap:10px; margin:8px 0; color:var(--muted); }
+.suffix-sequence { font-size: clamp(28px, 4vw, 48px); font-weight:950; letter-spacing:.08em; padding:18px; border-radius:18px; border:1px solid rgba(125,211,252,.25); background:rgba(125,211,252,.07); margin-bottom:18px; overflow-x:auto; white-space:nowrap; }
+.story-panel { display:grid; grid-template-columns: 1.3fr .9fr; gap:22px; align-items:center; }
+.story-steps { margin: 10px 0 0; color: var(--muted); line-height:1.8; }
+blockquote { margin:0; font-size:22px; line-height:1.4; color:#e0f2fe; border-left:4px solid var(--accent); padding-left:18px; }
+.limitations li { margin:10px 0; color:var(--muted); }
+footer { color:var(--muted); padding:30px 0 50px; text-align:center; }
+@media (max-width: 900px) {
+  .hero { flex-direction:column; align-items:flex-start; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .endpoint-grid, .story-panel { grid-template-columns:1fr; }
+  table { font-size:12px; }
+}
