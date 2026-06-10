@@ -1,0 +1,20 @@
+ip,label,score,total_requests,peak_rpm,status_404,status_403,status_401,status_500,payload_hits,sensitive_hits,first_seen,last_seen,evidence_count,reasons
+209.103.8.44,high_confidence_attacker,1144106,283699,7,0,0,0,283699,0,3101,6/16/2024 10:25,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+197.82.237.190,high_confidence_attacker,1143134,283399,8,0,0,0,283399,0,3177,6/16/2024 10:25,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+162.240.218.117,high_confidence_attacker,1142984,283390,8,0,0,0,283390,0,3139,6/16/2024 10:26,6/10/2026 4:14,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+119.123.55.141,high_confidence_attacker,1142817,283334,7,0,0,0,283334,0,3158,6/16/2024 10:25,6/10/2026 4:16,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+215.143.100.205,high_confidence_attacker,1141586,283012,7,0,0,0,283012,0,3177,6/16/2024 10:25,6/10/2026 4:15,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+148.9.19.27,high_confidence_attacker,1141442,283018,7,0,0,0,283018,0,3121,6/16/2024 10:25,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+14.121.165.122,high_confidence_attacker,1141201,282954,8,0,0,0,282954,0,3126,6/16/2024 10:25,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+199.242.130.73,high_confidence_attacker,1141164,282983,8,0,0,0,282983,0,3075,6/16/2024 10:26,6/10/2026 4:16,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+196.45.2.86,high_confidence_attacker,1141019,282853,7,0,0,0,282853,0,3200,6/16/2024 10:25,6/10/2026 4:16,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+211.92.75.1,high_confidence_attacker,1140782,282802,8,0,0,0,282802,0,3189,6/16/2024 10:29,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+187.91.79.110,high_confidence_attacker,1140589,282711,8,0,0,0,282711,0,3246,6/16/2024 10:26,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+199.71.56.65,high_confidence_attacker,1140494,282769,7,0,0,0,282769,0,3137,6/16/2024 10:27,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+202.129.225.117,high_confidence_attacker,1139557,282591,8,0,0,0,282591,0,3062,6/16/2024 10:26,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+95.125.101.128,high_confidence_attacker,1139284,282507,7,0,0,0,282507,0,3083,6/16/2024 10:26,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+12.104.185.44,high_confidence_attacker,1139102,282388,7,0,0,0,282388,0,3181,6/16/2024 10:28,6/10/2026 4:13,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+139.94.203.41,high_confidence_attacker,1138833,282356,8,0,0,0,282356,0,3134,6/16/2024 10:25,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+80.130.43.26,high_confidence_attacker,1138647,282335,8,0,0,0,282335,0,3100,6/16/2024 10:26,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+14.252.124.193,high_confidence_attacker,1138526,282223,7,0,0,0,282223,0,3209,6/16/2024 10:25,6/10/2026 4:16,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
+131.33.12.73,high_confidence_attacker,1135705,281577,7,0,0,0,281577,0,3130,6/16/2024 10:29,6/10/2026 4:17,5,server_error;sensitive_endpoint;high_500_count;many_sensitive_hits
