@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Raw/large local analysis artifacts
+# Keep compact presentation outputs in git, but avoid committing the full 47MB minute timeline.
+output/traffic_timeline.csv
+output_debug/
+output_fixed/
+output_fixed2/
+output_fixed*/
+
+# Local server/log noise
+*.log
